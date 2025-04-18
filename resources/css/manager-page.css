@@ -1,0 +1,56 @@
+body {
+    background-color: black;
+}
+
+.nav-bar {
+    background-color: rgb(53, 53, 230);
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 0;
+    align-items: center;
+}
+
+.nav-bar h1{
+    font-size: 2.5rem;
+    cursor: default;
+    color: aliceblue;
+}
+
+.nav-bar h2{
+    font-size: 1.8rem;
+    cursor: default;
+    color: aliceblue;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li {
+    font-size: 2rem;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+/* LOGOUT STYLING */
+.logout-popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgb(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logout-popup-wrap {
+    background-color: aliceblue;
+    padding: 2rem;
+    border-radius: .5rem;
+}
