@@ -11,4 +11,9 @@ if (document.querySelector('body.forgot-password')) {
 
 if (document.querySelector('body.manager-page')) {
     import('../css/manager-page.css');
+    import('./manager-page.js');
+}
+
+if (document.querySelector('body.project-view')) {
+    import('../css/project-view.css');
 }

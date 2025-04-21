@@ -34,4 +34,12 @@ class UserController extends Controller
             return back()->with('error', 'your username or password is wrong, please try again.');
         }
     }
+
+    public function logout(Request $request) {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return view('login_signin.login');
+    }
 }

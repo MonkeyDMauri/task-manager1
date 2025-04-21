@@ -1,6 +1,14 @@
 body {
     background-color: black;
+    scroll-behavior: smooth;
+    color: white;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+
 
 .nav-bar {
     background-color: rgb(53, 53, 230);
@@ -33,6 +41,12 @@ body {
     color: aliceblue;
 }
 
+.intro {
+    padding: 2rem;
+    width: 50%;
+    font-size:1.5rem;
+}
+
 /* LOGOUT STYLING */
 .logout-popup-wrapper {
     position: fixed;
@@ -47,10 +61,140 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .logout-popup-wrap {
     background-color: aliceblue;
     padding: 2rem;
     border-radius: .5rem;
+    color: black;
+}
+
+.logout-popup-wrap h1{
+    font-size: 2rem;
+}
+
+.logout-btn-op {
+    background-color: black;
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.logout-btn-op:hover {
+    background-color: rgb(73, 73, 73);
+    outline: solid white 1px;
+}
+
+.logout-popup-wrapper.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/*CREATE PROJECT SECTION STYLING*/
+
+.create-project-section {
+    padding: 1rem;
+    margin-top: 4rem;
+}
+
+.create-project-section h1{
+    color: white;
+    font-size: 3rem;
+}
+
+.create-project-form {
+    color: white;
+    border: solid white 2px;
+    padding: 1rem;
+
+}
+
+.create-project-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px, 1fr));
+    gap: 2.5rem;
+}
+
+.create-project-form label {
+    font-size: 1.5rem;
+}
+
+.create-project-form input {
+    outline: solid 1px white;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.project-description {
+    resize: none;
+    outline: solid 1px white;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.project-select {
+    outline: solid 1px white;
+    padding: .5rem;
+    border-radius: .5rem;   
+}
+
+.create-project-btn {
+    background-color: rgb(1, 48, 179);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+.error {
+    color: red;
+}
+
+/* PROJECTS SECTION STYLING */
+
+.projects-section {
+    color: white;
+    padding: 2rem;
+    margin-top: 6rem;
+}
+
+.projects-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.projects-title{
+    color: white;
+    font-size: 3rem;
+}
+
+.project-wrap {
+    border: solid 1px white;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.project-wrap h1{
+    font-size: 1.5rem;
+    margin:.5rem;
+}
+.project-wrap p{
+    margin:.5rem;
+}
+
+.project-wrap button{
+    background-color: rgb(53, 53, 230);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
 }

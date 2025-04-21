@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewPasswordController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ResetPasswordController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -22,6 +23,9 @@ Route::post('/signin', [UserController::class, 'signin']);
 
 // to login user in and create session.
 Route::post('/login', [UserController::class, 'login']);
+
+//Logout route.
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 // ** RESET PASSWORD ROUTES **
 Route::get('/forgot-password', [ResetPasswordController::class, 'create'])->name('password.request');
@@ -42,3 +46,16 @@ Route::get('/manager-dashboard', function () {
 Route::get('/employee-dashboard', function () {
     return view('home.employee-home');
 })->name('employee.dashboard');
+
+// Create project routes.
+Route::post('/create-project', [ProjectController::class, 'createProject'])->name('project.create');
+
+// Get all projects route.
+Route::get('/get-projects', [ProjectController::class, 'getProjects']);
+
+// View project.
+Route::get('/project/{project}', [ProjectController::class, 'viewProject']);
+
+
+//Route to update project details.
+Route::get('/update-project/{project}', [ProjectController::class, 'updateProject'])->name('project.update');

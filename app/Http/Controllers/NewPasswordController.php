@@ -39,6 +39,7 @@ class NewPasswordController extends Controller
 
         );
 
+        // checking to see if password was updated.
         return $status === Password::PASSWORD_RESET ?
             redirect('/login')->with('success', __($status))
             : back()->withError(['email' => __($status)]);
