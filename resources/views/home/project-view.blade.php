@@ -17,48 +17,72 @@
                 <button><-back</button>
             </form>
         </div>
-        <form action="/update-project/{{$project['id']}}" method='GET'>
-            <div class="project-details">            
-                
+        <div class="project-view-flex">
+            <form action="/update-project/{{$project['id']}}" method='POST'>
+                @csrf
+                <div class="project-details">            
+                    
 
-                <div>
-                    <label for="">Project name</label><br>
-                    <input type="text" name="name" value="{{$project['name']}}">
-                </div>
-                <div>
-                    <label for="">Description</label><br>
-                    <input type="text" name="description" value="{{$project['description']}}">
-                </div>
-                <div>
-                    <label for="">Status</label><br>
-                    <input type="text" name="status" value="{{$project['status']}}">
-                </div>
-                <div>
-                    <label for="">Priority</label><br>
-                    <input type="text" name="priority" value="{{$project['priority']}}">
-                </div>
-                <div>
-                    <label for="">Creation date:</label><br>
-                    <input type="date" name="created_at" value="{{$project['created_at']->format('Y-m-d')}}">
-                </div>
-                <div>
-                    <label for="">Start date:</label><br>
-                    <input type="date" name="start_date" value="{{$project['start_date']}}">
-                </div>
-                <div>
-                    <label for="">Due date:</label><br>
-                    <input type="date" name="due_date" value="{{$project['due_date']}}">
-                </div>
-                
-                @if(!$project['completed_at'])
-                    <p><b>Completed at:</b> <br>Not yet</p>
-                @else
-                    <p><b>Completed at:</b> <br>{{$project['completed_at']}}</p>
-                @endif
+                    <div>
+                        <label for="">Project name</label><br>
+                        <input type="text" name="name" value="{{$project['name']}}">
+                    </div>
+                    <div>
+                        <label for="">Description</label><br>
+                        <input type="text" name="description" value="{{$project['description']}}">
+                    </div>
+                    <div>
+                        <label for="status">Status</label><br>
+                        {{-- <input type="text" name="status" value="{{$project['status']}}"> --}}
+                        <select name="status" id="status">
+                            <option value="done">done</option>
+                            <option value="pending">pending</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">Priority</label><br>
+                        {{-- <input type="text" name="priority" value="{{$project['priority']}}"> --}}
+                    </div>
+                    <div>
+                        <p><b>Created at:</b> <br>{{$project['created_at']}}</p>                
+                        <select name="priority" id="priority">
+                            <option value="low">low</option>
+                            <option value="medium">medium</option>
+                            <option value="high">high</option>
+                            <option value="urgent">urgent</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="">Start date:</label><br>
+                        <input type="date" name="start_date" value="{{$project['start_date']}}" min="{{date('Y-m-d')}}">
+                    </div>
+                    <div>
+                        <label for="">Due date:</label><br>
+                        <input type="date" name="due_date" value="{{$project['due_date']}}" min="{{date('Y-m-d')}}">
+                    </div>
+                    
+                    @if(!$project['completed_at'])
+                        <p><b>Completed at:</b> <br>Not yet</p>
+                    @else
+                        <p><b>Completed at:</b> <br>{{$project['completed_at']}}</p>
+                    @endif
+
+                    <button class="project-update-btn">Save</button>
+                </div> 
+            </form>
+
+            <div class="comments-container">
+
             </div>
-
-            <button class="project-update-btn">Save</button>
-        </form>
+        </div>
+        @if(session('success'))
+            <p class="success">{{session('success')}}</p>
+        @endif
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                <p class="error">{{$error}}</p>
+            @endforeach
+        @endif
     </div>
 </body>
 </html>

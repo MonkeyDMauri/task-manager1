@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 
 class ProjectController extends Controller
@@ -37,15 +38,26 @@ class ProjectController extends Controller
     }
 
     public function viewProject(Project $project) {
-        // if ($project['completed_at']) {
-        //     $project->update([
-        //         'completed_at' => 
-        //     ]);
-        // }
+        if (auth()->user()->id != $project['created_by']) {
+            return abort(403, 'You dont have permissions to see this project');
+        }
         return view('home.project-view', ['project' => $project]);
     }
 
-    public function updateProject(Project $project) {
-        return $project['name'];
+    public function updateProject(Project $project, Request $request) {
+
+        $input = $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'status' => ['required', Rule::in('done', 'pending')],
+            'priority' => ['required', Rule::in('low', 'medium', 'high', 'urgent')],
+            'start_date' => ['required', 'date'],
+            'due_date' => 'required|date'
+        ]);
+
+        $project->update($input);
+        $project->save();
+
+        return back()->with('success', 'This project has been updated');
     }
 }

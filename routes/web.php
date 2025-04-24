@@ -58,4 +58,4 @@ Route::get('/project/{project}', [ProjectController::class, 'viewProject']);
 
 
 //Route to update project details.
-Route::get('/update-project/{project}', [ProjectController::class, 'updateProject'])->name('project.update');
+Route::post('/update-project/{project}', [ProjectController::class, 'updateProject'])->name('project.update');

@@ -18,6 +18,19 @@ body {
     cursor: pointer;
 }
 
+.project-view-flex {
+    display: flex;
+    gap: 2rem;
+}
+
+.project-details {
+    padding: 2rem;
+    outline: 1px solid white;
+    /* width: fit-content; */
+    border-radius: .5rem;
+    flex: 1;
+}
+
 .project-details label{
     font-weight: 600;
 }
@@ -25,6 +38,14 @@ body {
 .project-details input{
     outline: solid 1px white;
     padding: .3rem;
+    margin: .2rem;
+}
+
+.project-details select{
+    outline: solid 1px white;
+    padding: .3rem;
+    margin: .2rem;
+    width: 100%;
 }
 
 .project-update-btn {
@@ -34,4 +55,16 @@ body {
     border-radius: .5rem;
     cursor: pointer;
     margin: 1rem;
+}
+
+.comments-container {
+    flex: 1;
+    outline: 1px solid white;
+    /* width: fit-content; */
+    border-radius: .5rem;
+}
+
+.error {
+    color: red;
+    font-size: 1rem;
 }
