@@ -22,7 +22,8 @@
                 @csrf
                 <div class="project-details">            
                     
-
+                    <h1>Edit project</h1>
+                    <hr>
                     <div>
                         <label for="">Project name</label><br>
                         <input type="text" name="name" value="{{$project['name']}}">
@@ -42,15 +43,15 @@
                     <div>
                         <label for="">Priority</label><br>
                         {{-- <input type="text" name="priority" value="{{$project['priority']}}"> --}}
-                    </div>
-                    <div>
-                        <p><b>Created at:</b> <br>{{$project['created_at']}}</p>                
                         <select name="priority" id="priority">
                             <option value="low">low</option>
                             <option value="medium">medium</option>
                             <option value="high">high</option>
                             <option value="urgent">urgent</option>
                         </select>
+                    </div>
+                    <div>
+                        <p><b>Created at:</b> <br>{{$project['created_at']}}</p>
                     </div>
                     <div>
                         <label for="">Start date:</label><br>
@@ -71,10 +72,15 @@
                 </div> 
             </form>
 
-            <div class="comments-container">
-
+            <div class="tasks-wrapper">
+                <h1 class="header-name">Tasks</h1>
+                <hr>
+                <ul class="tasks-container">
+                    {{-- tasks will go here and get collected using javascript API fetch request --}}
+                </ul>
             </div>
         </div>
+        {{-- success or error messages --}}
         @if(session('success'))
             <p class="success">{{session('success')}}</p>
         @endif
@@ -84,5 +90,26 @@
             @endforeach
         @endif
     </div>
+
+    <div class="preview-view-flex" style="padding:2rem;">
+        <div class="create-task-form-container">
+            <form action="">
+                <h1 class="header-name">Create a task</h1>
+                <hr>
+                <div>
+                    <label for="task-name">Name</label>
+                    <br>
+                    <input type="text" name="task_name" id="task-name" placeholder="Give your project a name">
+                </div>
+                <div>
+                    <label for="task-description">Description</label>
+                    <br>
+                    <textarea name="task_description" id="task-description">this is an easy task</textarea>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    
 </body>
 </html>
