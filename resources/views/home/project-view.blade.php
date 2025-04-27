@@ -9,8 +9,13 @@
     @vite('resources/js/app.js')
 </head>
 <body class="project-view">
+    <input type="hidden" class="project-id" value="{{$project['id']}}">
     
     <div class="project-container">
+        @if(session('task-created'))
+            <p>{{session('task-created')}}</p>
+
+        @endif
         <div class="project-view-header">
             <h1 style="font-size: 2.5rem;">Project overview</h1>
             <form action="{{route('redirect.user')}}" method="GET">
@@ -93,20 +98,53 @@
 
     <div class="preview-view-flex" style="padding:2rem;">
         <div class="create-task-form-container">
-            <form action="">
+            <form action="{{route('create.task')}}" method="POST">
+                @csrf
+                <input type="hidden" name="project_id" value="{{$project['id']}}">
                 <h1 class="header-name">Create a task</h1>
                 <hr>
                 <div>
                     <label for="task-name">Name</label>
                     <br>
-                    <input type="text" name="task_name" id="task-name" placeholder="Give your project a name">
+                    <input type="text" name="name" id="task-name" placeholder="Give your project a name">
                 </div>
                 <div>
                     <label for="task-description">Description</label>
                     <br>
-                    <textarea name="task_description" id="task-description">this is an easy task</textarea>
+                    <textarea name="description" id="task-description">this is an easy task</textarea>
                 </div>
+                <div>
+                    <label for="task-priority">Priority</label>
+                    <br>
+                    <select name="priority" id="task-priority">
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="high">high</option>
+                        <option value="urgent">urgent</option>
+                    </select>
+                    <br>
+                    <button>Create Task</button>
+                </div>
+            </form>
+        </div>
+        <div class="assign-task-form-container">
+            <form action="">
+                <h1 class="header-name">Assign task</h1>
+                <hr>
+                <div>
+                    <label for="task-id">Task ID</label>
+                    <br>
+                    <input type="number" name="task_id" id="task-id" min=1>
+                </div>
+                <div>
+                    <label for="employee-id">Employee ID</label>
+                    <br>
+                    <input type="number" name="employee_id" id="employee-id" min=1>
+                </div>
+                <button>Assign Task</button>
+                <br><br>
                 
+                <a href="{{route('view.employees')}}"><p class="view-employees-link">View Employees</p></a>
             </form>
         </div>
     </div>

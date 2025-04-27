@@ -78,11 +78,54 @@ body {
     font-size: 3rem;
 }
 
-
-.create-task-form-container {
-    padding: 2rem 4rem;
+.preview-view-flex {
+    /* padding: 2rem 4rem; */
     outline: 1px solid white;
-    /* width: fit-content; */
+    margin: 2rem;
     border-radius: .5rem;
-    flex: 1;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.create-task-form-container input, textarea, select{
+    outline: solid 1px white;
+    padding: .3rem;
+    margin: .2rem;
+}
+
+.create-task-form-container button{
+    background-color: rgb(53, 53, 230);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.assign-task-form-container input, textarea, select{
+    outline: solid 1px white;
+    padding: .3rem;
+    margin: .2rem;
+}
+
+.assign-task-form-container button {
+    background-color: rgb(53, 53, 230);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    margin: 1rem;
+}
+
+.view-employees-link {
+    text-align: center;
+    border-bottom: solid 1px white;
+}
+
+.task-wrap {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
 }

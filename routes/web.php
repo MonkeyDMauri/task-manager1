@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewPasswordController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ResetPasswordController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -59,3 +61,12 @@ Route::get('/project/{project}', [ProjectController::class, 'viewProject']);
 
 //Route to update project details.
 Route::post('/update-project/{project}', [ProjectController::class, 'updateProject'])->name('project.update');
+
+//Route to view employees.
+Route::get('/view-employees', [EmployeeController::class, 'viewEmployees'])->name('view.employees');
+
+//Route to create project.
+Route::post('/create-task', [TaskController::class, 'createTask'])->name('create.task');
+
+//Route to get a project's tasks.
+Route::post('/get-tasks', [TaskController::class, 'getTasks']);

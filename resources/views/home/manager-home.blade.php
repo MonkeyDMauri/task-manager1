@@ -24,7 +24,7 @@
     </nav>
 
     <div class="intro">
-        <p>Create a manage your projects with ease and increase your productivity like never before! created by Mauricio Rodriguez.</p>
+        <p>Create and manage your projects with ease and increase your productivity like never before! created by Mauricio Rodriguez.</p>
     </div>
 
     <section class="create-project-section">

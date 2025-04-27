@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -55,9 +56,16 @@ class ProjectController extends Controller
             'due_date' => 'required|date'
         ]);
 
+        if ($input['status'] === 'done') {
+            $input['completed_at'] = time();
+        }
+
         $project->update($input);
         $project->save();
 
         return back()->with('success', 'This project has been updated');
     }
+
+    
+
 }

@@ -16,4 +16,5 @@ if (document.querySelector('body.manager-page')) {
 
 if (document.querySelector('body.project-view')) {
     import('../css/project-view.css');
+    import('./project_script.js');
 }
