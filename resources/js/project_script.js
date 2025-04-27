@@ -55,8 +55,30 @@ function displayTasks(tasks) {
         taskWrap.classList = 'task-wrap';
 
         taskWrap.innerHTML = `
-            <div>${task.name}</div>
-            <div>${task.description}</div>
+            <div>
+                <label>Name</label>
+                <h1>${task.name}</h1>
+            </div>
+            <div>
+                <label>Description</label>
+                <p>${task.description}</p>
+            </div>
+            <div>
+                <label>Priority</label>
+                <p>${task.priority}</p>
+            </div>
+            <div>
+                <label>Status</label>
+                <p>${task.status}</p>
+            </div>
+            <div>
+                <label>Assigned to</label>
+                <p>${task.assigned_employee}</p>
+            </div>
+            <div>
+                <label>Created at</label>
+                <p>${task.formatted_created_at}</p>
+            </div>
             
         `;
 
