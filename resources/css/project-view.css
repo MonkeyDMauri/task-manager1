@@ -119,7 +119,7 @@ body {
     margin: 1rem;
 }
 
-.view-employees-link {
+.view-members-link {
     text-align: center;
     border-bottom: solid 1px white;
 }
@@ -136,4 +136,35 @@ body {
 
 .task-wrap label{
     font-weight: 500;
+}
+
+/* view members popup styling */
+
+.search-member-bar {
+    padding:.5rem;
+    border-radius: .5rem;
+}
+
+.view-members-dropdown {
+    position: relative;
+}
+
+.members-dropdown-menu {
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    top: -100px;
+    right: 210px;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: .5rem;
+    padding:1rem;
+    transform: translateX(90px);
+    transition: all ease-in-out 300ms;
+}
+
+.view-members-dropdown.active .members-dropdown-menu{
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
 }

@@ -16,6 +16,11 @@
             <p>{{session('task-created')}}</p>
 
         @endif
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                <p class="error">{{$error}}</p>
+            @endforeach
+        @endif
         <div class="project-view-header">
             <h1 style="font-size: 2.5rem;">Project overview</h1>
             <form action="{{route('redirect.user')}}" method="GET">
@@ -89,11 +94,6 @@
         @if(session('success'))
             <p class="success">{{session('success')}}</p>
         @endif
-        @if($errors->any())
-            @foreach($errors->all() as $error)
-                <p class="error">{{$error}}</p>
-            @endforeach
-        @endif
     </div>
 
     <div class="preview-view-flex" style="padding:2rem;">
@@ -128,7 +128,8 @@
             </form>
         </div>
         <div class="assign-task-form-container">
-            <form action="">
+            <form action="/assign-task" method="POST">
+                @csrf
                 <h1 class="header-name">Assign task</h1>
                 <hr>
                 <div>
@@ -139,12 +140,27 @@
                 <div>
                     <label for="employee-id">Employee ID</label>
                     <br>
-                    <input type="number" name="employee_id" id="employee-id" min=1>
+                    <input type="number" name="user_id" id="employee-id" min=1>
                 </div>
                 <button>Assign Task</button>
                 <br><br>
                 
-                <a href="{{route('view.employees')}}"><p class="view-employees-link">View Employees</p></a>
+                <div class="view-members-dropdown">
+                    <button class="view-members-btn" type="button">view team members</button>
+                    <div class="members-dropdown-menu">
+                        <div>
+                            <div style="display:flex; justify-content:space-between;">
+                                <h1 style="font-size: 1.2rem; font-weight:500;">Team members</h1>
+                                <h1 style="cursor:pointer;" class="close-members-popup">x</h1>
+                            </div>
+                            <input type="text" name="search_member" class="search-member-bar" placeholder="search member by name...">
+                        </div>
+                        <ul class="members-list">
+                            {{-- team members goes here --}}
+                        </ul>
+                    </div>
+                </div>
+                
             </form>
         </div>
     </div>

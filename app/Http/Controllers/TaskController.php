@@ -54,9 +54,27 @@ class TaskController extends Controller
             //getting formatted data and storing it in a new variable inside the task instance we are sending as a response.
             $task->formatted_created_at = $task->createdAt();
             //getting the name of the employee assigned to do this task and storing it in a new variable inside the task instance we are sending as a response.
-            $task->assigned_employee = $task->assignedUser ? $task->assignedUser->name : NULL;
+            $task->assigned_employee = $task->assignedUser ? $task->assignedUser->name : 'unassigned';
+            $task->who_completed_it = $task->completedByUser ? $task->completedByUser->name : 'unassigned';
         }
 
         return response()->json(['success' => true, 'tasks' => $tasks]);
+    }
+
+    public function assignTask(Request $request) {
+        $request->validate([
+            'task_id' => 'required|integer',
+            'user_id' => 'required|integer'
+        ]);
+
+        $task = Task::findOrFail($request->task_id);
+
+        $task->update([
+            'assigned_to' => $request->user_id
+        ]);
+
+        $task->save();
+
+        return back();
     }
 }

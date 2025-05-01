@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DashboardController;
@@ -41,13 +43,16 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('p
 // Route to call method that will redirect user to correct page depending on their role.
 Route::get('/redirect-user', [DashboardController::class, 'takeUserToRightPage'])->name('redirect.user');
 
-Route::get('/manager-dashboard', function () {
-    return view('home.manager-home');
-})->name('manager.dashboard');
+Route::get('/manager-dashboard', [ManagerController::class, 'viewManagerPage'])->name('manager.dashboard');
+
+//Route to go to create team form.
+Route::get('/manager-dashboard/create-team', [ManagerController::class, 'ViewCreateTeamForm']);
 
 Route::get('/employee-dashboard', function () {
     return view('home.employee-home');
 })->name('employee.dashboard');
+
+
 
 // Create project routes.
 Route::post('/create-project', [ProjectController::class, 'createProject'])->name('project.create');
@@ -70,3 +75,15 @@ Route::post('/create-task', [TaskController::class, 'createTask'])->name('create
 
 //Route to get a project's tasks.
 Route::post('/get-tasks', [TaskController::class, 'getTasks']);
+
+//Route to start task assignment process.
+Route::post('/assign-task', [TaskController::class, 'assignTask']);
+
+//Route to create team.
+Route::post('/create-team-request', [TeamController::class, 'createTeam'])->name('team.create');
+
+//Route to get al teams belonging to current manager.
+Route::get('/get-teams', [TeamController::class, 'getTeams']);
+
+//Route to view a team.
+Route::get('/view-team/{team}', [TeamController::class, 'viewTeam']);

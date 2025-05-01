@@ -51,10 +51,15 @@ function displayTasks(tasks) {
     tasksContainer.innerHTML = '';
 
     tasks.forEach(task => {
+        console.log('completed by:', task.who_completed_it);
         const taskWrap = document.createElement('li');
         taskWrap.classList = 'task-wrap';
 
         taskWrap.innerHTML = `
+            <div>
+                <label>ID</label>
+                <h1>${task.id}</h1>
+            </div>
             <div>
                 <label>Name</label>
                 <h1>${task.name}</h1>
@@ -79,9 +84,25 @@ function displayTasks(tasks) {
                 <label>Created at</label>
                 <p>${task.formatted_created_at}</p>
             </div>
+            <div>
+                <label>Completed by</label>
+                <p>${task.who_completed_it}</p>
+            </div>
             
         `;
 
         tasksContainer.appendChild(taskWrap);
     });
+}
+
+// code for showing members in popup.
+
+const membersDropdown = _('.view-members-dropdown');
+
+_('.view-members-btn').addEventListener('click', showmembersDropdown);
+_('.close-members-popup').addEventListener('click', showmembersDropdown);
+
+function showmembersDropdown(){
+    membersDropdown.classList.toggle('active');
+    console.log('dropdown clicked');
 }

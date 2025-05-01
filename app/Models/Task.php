@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     //
-    protected $fillable = ['name', 'description', 'status', 'priority', 'project_id', 'completed_by', 'created_at'];
+    protected $fillable = ['name', 'description', 'status', 'priority', 'project_id', 'assigned_to', 'completed_by', 'created_at'];
 
     protected $table = 'tasks';
 
@@ -17,5 +17,9 @@ class Task extends Model
 
     public function assignedUser() {
         return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    public function completedByUser(){ 
+        return $this->belongsTo(User::class, 'completed_by');
     }
 }

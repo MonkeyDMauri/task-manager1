@@ -112,6 +112,7 @@ html {
     color: white;
     border: solid white 2px;
     padding: 1rem;
+    border-radius: .5rem;
 
 }
 
@@ -197,4 +198,112 @@ html {
     padding: .5rem 1rem;
     border-radius: .5rem;
     cursor: pointer;
+}
+
+/* CREATE TEAM PAGE STYLING */
+
+.create-team-wrapper {
+    padding: 2rem;
+}
+
+.create-team-form input, textarea {
+    outline: white 1px solid;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.create-team-wrapper h1{
+    font-size: 2.5rem;
+    color: rgb(53, 53, 230);
+    font-weight: 600;
+}
+
+.create-team-btn {
+    background-color: rgb(60, 60, 247);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+/* TEAMS SECTION STYLE */
+
+.teams-section {
+    padding: 1rem;
+    margin-top: 6rem;
+}
+
+.teams-wrapper {
+    border: solid 2px white;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.teams-option-wrapper {
+    display: flex;
+    gap: 1rem;
+    
+    
+    padding: 1rem;
+}
+
+.teams-option-wrapper li {
+    font-size: 1.5rem;
+    border-right: solid 1px white;
+    padding-right: 1rem;
+    cursor: pointer;
+}
+
+.teams-option-wrapper li:hover {
+    color: rgb(60, 60, 247);
+}
+
+.teams-list-wrap {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.team-container {
+    padding: 1rem;
+    border: 1px solid rgb(168, 168, 168);
+}
+
+.team-container button{
+    background-color: rgb(60, 60, 247);
+    color: white;
+    padding: 2px 8px;
+    border-radius: .5rem;
+    margin: 1rem;
+    cursor: pointer;
+}
+
+/* TEAM OVERVIEW STYLING */
+
+.team-overview-wrapper {
+    padding: 1rem;
+}
+
+.team-overview-wrapper span{
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.team-overview-wrapper h1{
+    font-size: 2.5rem;
+    color: rgb(53, 53, 230);
+    font-weight: 600;
+}
+.team-overview-wrapper label{
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.team-option {
+    display:flex; gap:2rem; padding:1rem; cursor: pointer;
+}
+
+.team-option a:hover{
+    color: rgb(53, 53, 230);
 }

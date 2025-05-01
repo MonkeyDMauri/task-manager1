@@ -83,3 +83,50 @@ function displayProjects(projects) {
     });
 }
 
+// CODE TO GET AND DISPLAY TEAMS.
+
+let teams = [];
+
+function getTeams() {
+    fetch('/get-teams')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok:', res.status);
+        } else {
+            return res.json();
+        }
+    })
+    .then(data => {
+        teams = data.teams;
+        displayTeams(teams);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+}
+
+
+getTeams();
+
+
+// display teams in manager page.
+
+function displayTeams(teams) {
+    const teamsList = _('.teams-list-wrap');
+    teamsList.innerHTML = '';
+
+    teams.forEach(team => {
+        const teamContainer = document.createElement('li');
+        teamContainer.classList = 'team-container';
+
+        teamContainer.innerHTML = `
+            <h1>Team ID: ${team.id}</h1>
+            <h1>Name: ${team.name}</h1>
+            <h1>Owner: ${team.owner}</h1>
+
+            <button onclick="window.location.href='/view-team/${team.id}'">team overview</button>
+        `;
+
+        teamsList.appendChild(teamContainer);
+    })
+}

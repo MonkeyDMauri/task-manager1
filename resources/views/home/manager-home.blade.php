@@ -11,12 +11,12 @@
 <body class="manager-page">
     <nav class="nav-bar">
         <div>
-            <h1>Manager Page</h1>
+            <h1>Manager Center</h1>
             <h2>Welcome {{auth()->user()->name}}!</h2>
         </div>
 
         <ul class="nav-links">
-            <li><a href="#team">Team</a></li>
+            <li><a href="#teams">Teams</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="">Settings</a></li>
             <li class="logout-btn">Logout</li>
@@ -93,6 +93,24 @@
             </div>
             
         </form>
+    </section>
+
+    <section id="teams" class="teams-section">
+        <h1 class="projects-title">Teams</h1>
+        <div class="teams-wrapper">
+            <ul class="teams-option-wrapper">
+                <li><a href="/manager-dashboard/create-team">new team</a></li>
+                <li><a href="">delete team</a></li>
+            </ul>
+            <hr>
+            <br>
+            <div class="teams-list-wrapper">
+                <h1 style="font-size: 1.8rem;">Your teams</h1>
+                <div class="teams-list-wrap">
+                    {{-- list of teams go here --}}
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="projects-section" id="projects">
