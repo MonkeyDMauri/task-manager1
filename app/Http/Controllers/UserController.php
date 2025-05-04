@@ -42,4 +42,12 @@ class UserController extends Controller
 
         return view('login_signin.login');
     }
+    public function getTeams() {
+        
+        $user = User::findOrFail(auth()->user()->id);
+
+        $teams = $user->teams()->get();
+
+        return response()->json(['teams' => $teams]);
+    }
 }

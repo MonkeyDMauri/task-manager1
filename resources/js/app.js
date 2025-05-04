@@ -18,3 +18,8 @@ if (document.querySelector('body.project-view')) {
     import('../css/project-view.css');
     import('./project_script.js');
 }
+
+if (document.querySelector('body.team-view')) {
+    import('../css/manager-page.css');
+    import('./team-view.js');
+}

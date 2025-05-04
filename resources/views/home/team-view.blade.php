@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="team_id" content="{{$team->id}}">
     <title>Team Overview</title>
     @vite('resources/js/app.js')
 </head>
-<body class="manager-page">
+<body class="team-view">
     <div class="team-overview-wrapper">
         <span onclick="window.location.href='/manager-dashboard#teams'"><-</span>
         <h1>Team Overview</h1>
@@ -39,8 +41,31 @@
         </div>
         
         <div class=team-option>
-            <a href="">Add members</a>
-            <a href="">Delete team</a>
+            <button class="add-members">Add Members</button>
+            <button>Delete Team</button>
+        </div>
+        @if(session('message'))
+            <p style="font-size: 1.5rem; font-weight:500;">{{session('message')}}</p>
+        @endif
+    </div>
+
+    <div class="employees-wrapper">
+        <div class="employees-wrap">
+            <h1>Employees</h1>
+            <hr>
+            <ul class="employees-list">
+                {{-- employees go here --}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="team-members-wrapper">
+        <div class="team-members-wrap">
+            <h1>Team Members</h1>
+            <hr>
+            <ul class="team-members-list">
+                {{-- team members go here --}}
+            </ul>
         </div>
     </div>
 </body>

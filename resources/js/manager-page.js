@@ -63,6 +63,7 @@ function displayProjects(projects) {
     projectsHolder.innerHTML = '';
 
     projects.forEach(project => {
+        console.log('team ID:', project.team_id);
         const projectWrap = document.createElement('li');
         projectWrap.classList = 'project-wrap';
 
@@ -72,6 +73,7 @@ function displayProjects(projects) {
             <p>${project.description}</p>
             
             <p>status: ${project.status}</p>
+            <p>team ID: ${project.team_id}</p>
 
             <form action="/project/${project.id}" method="GET">
                 <input type="hidden" name="token" value="${csrfToken}">
@@ -98,6 +100,7 @@ function getTeams() {
     })
     .then(data => {
         teams = data.teams;
+        console.log('Teams,')
         displayTeams(teams);
     })
     .catch(err => {
@@ -116,6 +119,7 @@ function displayTeams(teams) {
     teamsList.innerHTML = '';
 
     teams.forEach(team => {
+        console.log('insert team');
         const teamContainer = document.createElement('li');
         teamContainer.classList = 'team-container';
 
@@ -128,5 +132,25 @@ function displayTeams(teams) {
         `;
 
         teamsList.appendChild(teamContainer);
+    })
+    displayManagerTeams(teams);
+}
+
+// CODE TO DISPLAY MANAGER'S TEAMS WHEN CREATING A NEW PROJECT.
+
+function displayManagerTeams(teams) {
+    const teamOptions = _('.team-id-select');
+    teamOptions.innerHTML = '';
+
+    teams.forEach(team => {
+        const option = document.createElement('option');
+        option.classList = 'option';
+        option.value = team.id
+
+        option.innerHTML = `
+            <h1>${team.name}</h1>
+        `;
+
+        teamOptions.appendChild(option);
     })
 }

@@ -295,9 +295,14 @@ html {
     color: rgb(53, 53, 230);
     font-weight: 600;
 }
+
 .team-overview-wrapper label{
     font-weight: 500;
     font-size: 1.1rem;
+}
+
+.team-overview-wrapper button{
+    cursor: pointer;
 }
 
 .team-option {
@@ -306,4 +311,59 @@ html {
 
 .team-option a:hover{
     color: rgb(53, 53, 230);
+}
+
+
+.employees-wrapper {
+    padding: 2rem;
+    display: none;
+}
+
+.employees-wrapper.show {
+    display: flex;
+}
+
+.employees-wrap {
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.employees-wrap h1{
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: rgb(60, 60, 247);
+}
+
+.employees-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.employee-card {
+    border: 1px rgb(197, 197, 197) solid;
+    padding: 1rem;
+}
+
+.team-members-wrapper {
+    padding: 2rem;
+}
+
+.team-members-wrap {
+    border: solid 1px white;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.team-members-wrap h1{
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: rgb(60, 60, 247);
+}
+
+.team-members-list {
+    padding: 1rem;
 }

@@ -56,6 +56,14 @@
                         <br>
                         <input type="date" name="due_date" id="due-date" min={{date('Y-m-d')}}>
                     </div>
+
+                    <div>
+                        <label for="team-id">Team ID</label>
+                        <br>
+                        <select name="team_id" id="team-id" class="team-id-select">
+                            {{-- manager's teams go here --}}
+                        </select>
+                    </div>
     
                     <div>
                         <label for="priority">Priority</label>

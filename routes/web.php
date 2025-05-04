@@ -87,3 +87,18 @@ Route::get('/get-teams', [TeamController::class, 'getTeams']);
 
 //Route to view a team.
 Route::get('/view-team/{team}', [TeamController::class, 'viewTeam']);
+
+//Route to see users.
+Route::get('/users-view', [EmployeeController::class, 'viewEmployees'])->name('users.employees');
+
+//Route to get team members.
+Route::get('/get-employees', [EmployeeController::class, 'getEmployees']);
+
+//Route to get team members.
+Route::get('/get-team-members/{team}', [TeamController::class, 'getMembers']);
+
+//Route to add a user to a team.
+Route::post('/add-user-to-team', [TeamController::class, 'addTeamMember']);
+
+// This route will be for checking if a user is already in a team.
+Route::get('/user-in-team/{user}', [UserController::class, 'checkIfUserAlreadyInTeam']);

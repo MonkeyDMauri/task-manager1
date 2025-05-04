@@ -17,7 +17,8 @@ class ProjectController extends Controller
             'start_date' => 'required|date',
             'due_date' => 'required|date',
             'priority' => 'required',
-            'auto_complete' => 'required'
+            'auto_complete' => 'required',
+            'team_id' => 'required|int'
         ]);
 
         // converting the auto_cpmplete value into a boolean value since thats what the table expects this column to be
@@ -27,6 +28,8 @@ class ProjectController extends Controller
         $project = Project::create($input);
         
         return back()->with('project-success', 'project was successfully created');
+
+        // return dd($request->all());
     }
 
     // function to get all projects.
@@ -65,7 +68,4 @@ class ProjectController extends Controller
 
         return back()->with('success', 'This project has been updated');
     }
-
-    
-
 }
