@@ -366,4 +366,40 @@ html {
 
 .team-members-list {
     padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+
+.team-projects-wrapper {
+    padding: 2rem;
+}
+
+.team-projects-wrap {
+    border: solid 1px white;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.team-projects-wrap h1{
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: rgb(60, 60, 247);
+}
+
+.team-projects-list {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.project-card {
+    border: 1px rgb(197, 197, 197) solid;
+    padding: 1rem;
+}
+
+.project-card a{
+    font-weight: 500;
 }

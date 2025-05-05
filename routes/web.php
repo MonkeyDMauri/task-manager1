@@ -88,6 +88,9 @@ Route::get('/get-teams', [TeamController::class, 'getTeams']);
 //Route to view a team.
 Route::get('/view-team/{team}', [TeamController::class, 'viewTeam']);
 
+//Delete team.
+Route::delete('/delete-team', [TeamController::class, 'deleteTeam']);
+
 //Route to see users.
 Route::get('/users-view', [EmployeeController::class, 'viewEmployees'])->name('users.employees');
 
@@ -102,3 +105,5 @@ Route::post('/add-user-to-team', [TeamController::class, 'addTeamMember']);
 
 // This route will be for checking if a user is already in a team.
 Route::get('/user-in-team/{user}', [UserController::class, 'checkIfUserAlreadyInTeam']);
+
+Route::get('/get-team-projects/{team}', [TeamController::class, 'getTeamProjects']);

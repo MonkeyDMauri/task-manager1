@@ -63,7 +63,6 @@ function displayProjects(projects) {
     projectsHolder.innerHTML = '';
 
     projects.forEach(project => {
-        console.log('team ID:', project.team_id);
         const projectWrap = document.createElement('li');
         projectWrap.classList = 'project-wrap';
 
@@ -90,7 +89,8 @@ function displayProjects(projects) {
 let teams = [];
 
 function getTeams() {
-    fetch('/get-teams')
+    //getting projects depending on team ID
+    fetch(`/get-teams`)
     .then(res => {
         if (!res.ok) {
             throw new Error('Network response was not ok:', res.status);

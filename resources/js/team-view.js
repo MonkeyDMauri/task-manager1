@@ -26,6 +26,7 @@ function getEmployees() {
         }
     })
     .then(data => {
+        
         employeesWrapper.classList.add('show')
         employees = data.employees; 
         console.log(employees);
@@ -77,6 +78,7 @@ function getTeamMembers() {
         }
     })
     .then(data => {
+        console.log('Current team id:', teamId);
         teamMembers = data.members; 
         console.log(teamMembers);
         displayMembers(teamMembers)
@@ -119,5 +121,52 @@ function displayMembers(members) {
     
 }
 
-
 getTeamMembers();
+
+// CODE TO GET PROJECTS AND THEN DISPLAY THEM(PROJECT BELONGING TO CURRENT TEAM).
+
+let projects;
+
+function getProjects() {
+    fetch(`/get-team-projects/${teamId}`)
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok:', res.status);
+        } else {
+            return res.json();
+        }
+    })
+    .then(data => {
+        projects = data.projects;
+        console.log('Team projects:', projects);
+        displayTeamProjects(projects);
+    })
+    .catch(err => {
+        console.error(err);
+    })
+}
+
+
+getProjects();
+
+
+function displayTeamProjects(projects) {
+
+    const projectsList = _('.team-projects-list');
+    projectsList.innerHTML = '';
+
+    projects.forEach(pro => {
+        const projectCard = document.createElement('li');
+        projectCard.classList = 'project-card';
+
+        projectCard.innerHTML = `
+            <h2>ID: ${pro.id}</h2>
+            <h2>Name: ${pro.name}</h2>
+            <h2>Tasks: ${pro.number_of_tasks}</h2>
+
+            <a href="/project/${pro.id}">view project</a>
+        `;
+
+        projectsList.appendChild(projectCard);
+    })
+}

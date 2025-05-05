@@ -42,7 +42,14 @@
         
         <div class=team-option>
             <button class="add-members">Add Members</button>
-            <button>Delete Team</button>
+
+            <form action="/delete-team" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="hidden" name='team_id' value="{{$team->id}}">
+                <button>Delete Team</button>
+            </form>
+            
         </div>
         @if(session('message'))
             <p style="font-size: 1.5rem; font-weight:500;">{{session('message')}}</p>
@@ -65,6 +72,16 @@
             <hr>
             <ul class="team-members-list">
                 {{-- team members go here --}}
+            </ul>
+        </div>
+    </div>
+
+    <div class="team-projects-wrapper">
+        <div class="team-projects-wrap">
+            <h1>Team Projects</h1>
+            <hr>
+            <ul class="team-projects-list">
+                {{-- team projects members go here --}}
             </ul>
         </div>
     </div>

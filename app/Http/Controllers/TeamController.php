@@ -68,4 +68,33 @@ class TeamController extends Controller
 
         return response()->json(['members' => $members]);
     }
+
+    public function getTeamProjects(Team $team) {
+
+        //Accessing 2 relationships at once.
+        //This way each project instance has an attribute which is a colletion of tasks(if any).
+        $projects = $team->projects()->with('tasks')->get();
+
+        //Adding an extra attribute to each project instance to see how many 
+        //tasks it has a return the number of tasks.
+        foreach($projects as $project) {
+            $project->number_of_tasks = $project->tasks->count();
+        }
+
+        return response()->json(['projects' => $projects]);
+    }
+
+    //delete team.
+    public function deleteTeam(Request $request) {
+
+        $request->validate([
+            'team_id' => 'required'
+        ]);
+
+        $team = Team::findOrFail($request->team_id);
+
+        $team->delete();
+
+        return redirect('/manager-dashboard');
+    }
 }
