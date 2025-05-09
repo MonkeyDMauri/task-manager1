@@ -14,6 +14,10 @@ class EmployeeController extends Controller
     public function getEmployees() {
         $employees = User::where('role', 'employee')->get();
 
+        foreach($employees as $employee) {
+            $employee->teams = $employee->teams ? $employee->teams : NULL;
+        }
+
         return response()->json(['employees' => $employees]);
     }
 }

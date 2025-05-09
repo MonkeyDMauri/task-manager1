@@ -403,3 +403,54 @@ html {
 .project-card a{
     font-weight: 500;
 }
+
+.remove-member-btn {
+    padding: .1rem .5rem;
+    border: solid 1px white;
+    border-radius: .5rem;
+    margin-top: .5rem;
+    cursor: pointer;
+}
+
+.remove-member-popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.6);
+    z-index: 200;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remove-member-popup-wrap {
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    background-color: rgb(56, 51, 51);
+    border: white;
+}
+
+.remove-member-popup-wrap h1{
+    text-align: center;
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.remove-member-popup-wrap span{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.remove-member-popup-wrap button{
+    border: solid 1px white;
+    border-radius: .5rem;
+    padding: .2rem  2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+}

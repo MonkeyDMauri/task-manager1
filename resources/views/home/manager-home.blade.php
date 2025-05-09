@@ -107,8 +107,8 @@
         <h1 class="projects-title">Teams</h1>
         <div class="teams-wrapper">
             <ul class="teams-option-wrapper">
-                <li><a href="/manager-dashboard/create-team">new team</a></li>
-                <li><a href="">delete team</a></li>
+                <li><a href="/manager-dashboard/create-team">+ New Team</a></li>
+                <li><a href="">- Delete Team</a></li>
             </ul>
             <hr>
             <br>

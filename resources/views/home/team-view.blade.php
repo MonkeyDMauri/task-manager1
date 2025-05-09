@@ -85,5 +85,15 @@
             </ul>
         </div>
     </div>
+
+    <div class="remove-member-popup-wrapper">
+        <div class="remove-member-popup-wrap">
+            <h1>Are you sure you wanna remove this member?</h1>
+            <span>
+                <button class="remove-yes">yes</button>
+                <button class="remove-no">no</button>
+            </span>
+        </div>
+    </div>
 </body>
 </html>

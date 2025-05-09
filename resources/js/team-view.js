@@ -29,7 +29,7 @@ function getEmployees() {
         
         employeesWrapper.classList.add('show')
         employees = data.employees; 
-        console.log(employees);
+        console.log("Employees xdxd", employees);
         displayEmployees(employees)
     })
     .catch(err => console.error(err));
@@ -42,24 +42,38 @@ function displayEmployees(employees) {
 
     employees.forEach(emp => {
 
-        const employeeCard = document.createElement('li');
-        employeeCard.classList = 'employee-card';
+        let empInThisTeam = false; // this flag will change to true if this employee is already part of current team.
 
-        employeeCard.innerHTML = `
-            <form method="POST" action="/add-user-to-team">
-                <input type="hidden" name="_token" value="${csrfToken}">
-                <input type="hidden" name="emp_id" value="${emp.id}">
-                <input type="hidden" name="team_id" value="${teamId}">
+        const teams = emp.teams;
 
-                <h2>ID: ${emp.id}</h2>
-                <h2>Name: ${emp.name}</h2>
-                <h2 style="text-wrap:wrap; max-width:fit-content;">Email: ${emp.email}</h2>
+        //this loop here is to check if the ID of the current team is already inside the array of this employee.
+        teams.forEach(team => {
+            if (team.id == teamId) {
+                empInThisTeam = true;
+                console.log(`${emp.name} is already in this team with ID ${teamId}`);
+            }
+        })
 
-                <button>Add (Laravel)</button>
-                <button type="button">Add (JS)</button>
-        `;
+        if (!empInThisTeam) {
+            const employeeCard = document.createElement('li');
+            employeeCard.classList = 'employee-card';
 
-        employeesList.appendChild(employeeCard);
+            employeeCard.innerHTML = `
+                        <form method="POST" action="/add-user-to-team">
+                            <input type="hidden" name="_token" value="${csrfToken}">
+                            <input type="hidden" name="emp_id" value="${emp.id}">
+                            <input type="hidden" name="team_id" value="${teamId}">
+
+                            <h2>ID: ${emp.id}</h2>
+                            <h2>Name: ${emp.name}</h2>
+                            <h2 style="text-wrap:wrap; max-width:fit-content;">Email: ${emp.email}</h2>
+
+                            <button>Add (Laravel)</button>
+                            <button type="button">Add (JS)</button>
+                        `;
+
+            employeesList.appendChild(employeeCard);
+        }
     })
 }
 
@@ -107,6 +121,7 @@ function displayMembers(members) {
                         <h2>ID: ${emp.id}</h2>
                         <h2>Name: ${emp.name}</h2>
                         <h2 style="text-wrap:wrap; max-width:fit-content;">Email: ${emp.email}</h2>
+                        <button class="remove-member-btn">remove</button>
             `;
 
             membersList.appendChild(employeeCard);
