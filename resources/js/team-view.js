@@ -118,10 +118,10 @@ function displayMembers(members) {
                         <input type="hidden" name="emp_id" value="${emp.id}">
                     <input type="hidden" name="team_id" value="${teamId}">
 
-                        <h2>ID: ${emp.id}</h2>
+                        <h2 class="team-member-id" data-id="${emp.id}">ID: ${emp.id}</h2>
                         <h2>Name: ${emp.name}</h2>
                         <h2 style="text-wrap:wrap; max-width:fit-content;">Email: ${emp.email}</h2>
-                        <button class="remove-member-btn">remove</button>
+                        <button class="remove-member-btn" type="button">remove</button>
             `;
 
             membersList.appendChild(employeeCard);
@@ -184,4 +184,36 @@ function displayTeamProjects(projects) {
 
         projectsList.appendChild(projectCard);
     })
+}
+
+// CODE TO REMOVE A TEAM MEMBER.
+
+//catching click event if "remove" button is clicked.
+document.querySelector('.team-members-wrapper').addEventListener('click', e => {
+    if (e.target.closest('.remove-member-btn')) {
+        showRemovePopup(e);
+    }
+});
+
+//catching click event if "no" button is clicked to then close.
+_('.remove-no').addEventListener('click', closeRemovePopup);
+
+//function to show popup to confirm and remove member.
+function showRemovePopup(e) {
+    console.log('clicked');
+    const popup = _('.remove-member-popup-wrapper');
+
+    popup.classList.add('show');
+
+    //getting ID of member in question.
+    const memberCard = e.target.closest('.employee-card');
+    const memberId = memberCard.querySelector('.team-member-id').getAttribute('data-id');
+    console.log(memberId);
+}
+
+//function to close "remove member" popup.
+function closeRemovePopup(){ 
+    const popup = _('.remove-member-popup-wrapper');
+
+    popup.classList.remove('show');
 }
