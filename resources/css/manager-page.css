@@ -309,6 +309,10 @@ html {
     display:flex; gap:2rem; padding:1rem; cursor: pointer;
 }
 
+.team-option button:hover{
+    color: rgb(60, 60, 247);
+}
+
 .team-option a:hover{
     color: rgb(53, 53, 230);
 }
@@ -346,6 +350,8 @@ html {
 .employee-card {
     border: 1px rgb(197, 197, 197) solid;
     padding: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .team-members-wrapper {

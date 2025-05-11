@@ -168,3 +168,9 @@ body {
     visibility: visible;
     pointer-events: auto;
 }
+
+.members-list {
+    border: 1px solid white;
+    padding: .5rem;
+    border-radius: .5rem;
+}

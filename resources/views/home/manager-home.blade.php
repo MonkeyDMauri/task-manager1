@@ -58,7 +58,7 @@
                     </div>
 
                     <div>
-                        <label for="team-id">Team ID</label>
+                        <label for="team-id">Team</label>
                         <br>
                         <select name="team_id" id="team-id" class="team-id-select">
                             {{-- manager's teams go here --}}

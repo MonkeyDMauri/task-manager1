@@ -99,6 +99,7 @@ Route::get('/get-employees', [EmployeeController::class, 'getEmployees']);
 
 //Route to get team members.
 Route::get('/get-team-members/{team}', [TeamController::class, 'getMembers']);
+Route::get('/get-members/{project}', [TeamController::class, 'getMembersByProject']);
 
 //Route to add a user to a team.
 Route::post('/add-user-to-team', [TeamController::class, 'addTeamMember']);
@@ -107,3 +108,6 @@ Route::post('/add-user-to-team', [TeamController::class, 'addTeamMember']);
 Route::get('/user-in-team/{user}', [UserController::class, 'checkIfUserAlreadyInTeam']);
 
 Route::get('/get-team-projects/{team}', [TeamController::class, 'getTeamProjects']);
+
+//remove team member.
+Route::post('/remove-member', [TeamController::class, 'removeMember']);

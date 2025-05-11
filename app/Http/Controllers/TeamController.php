@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use App\Models\User;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -62,10 +63,29 @@ class TeamController extends Controller
         return back()->with('message', 'you added a new team member!');
     }
 
+    public function removeMember(Request $request) {
+        $member = User::findOrFail($request->memberId);
+
+        $member->teams()->detach($request->teamId);
+
+        return response()->json(['success' => true, 'member' => $request->memberId]);
+    }
+
     public function getMembers(Team $team) {
 
         $members = $team->members;
 
+        return response()->json(['members' => $members]);
+    }
+
+    public function getMembersByProject(Project $project) {
+        // team instance this project belongs to.
+        $team = Team::findOrFail($project->team_id);
+
+        // getting team members.
+        $members = $team->members;
+
+        // returning a response.
         return response()->json(['members' => $members]);
     }
 

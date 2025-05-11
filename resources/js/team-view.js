@@ -188,6 +188,8 @@ function displayTeamProjects(projects) {
 
 // CODE TO REMOVE A TEAM MEMBER.
 
+let memberToBeRemovedId;// this variable will change depending on who the manager intends to eliminate.
+
 //catching click event if "remove" button is clicked.
 document.querySelector('.team-members-wrapper').addEventListener('click', e => {
     if (e.target.closest('.remove-member-btn')) {
@@ -197,6 +199,9 @@ document.querySelector('.team-members-wrapper').addEventListener('click', e => {
 
 //catching click event if "no" button is clicked to then close.
 _('.remove-no').addEventListener('click', closeRemovePopup);
+_('.remove-yes').addEventListener('click', () => {
+    removeMember(memberToBeRemovedId);
+});
 
 //function to show popup to confirm and remove member.
 function showRemovePopup(e) {
@@ -208,7 +213,8 @@ function showRemovePopup(e) {
     //getting ID of member in question.
     const memberCard = e.target.closest('.employee-card');
     const memberId = memberCard.querySelector('.team-member-id').getAttribute('data-id');
-    console.log(memberId);
+    console.log('ID of member to be removed:', memberId);
+    memberToBeRemovedId = memberId;
 }
 
 //function to close "remove member" popup.
@@ -216,4 +222,40 @@ function closeRemovePopup(){
     const popup = _('.remove-member-popup-wrapper');
 
     popup.classList.remove('show');
+}
+
+function removeMember(memberId) {
+
+    const jsObject = {
+        'memberId' : memberId,
+        'teamId' : teamId
+    };
+
+    fetch('/remove-member', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN' : csrfToken
+        },
+        body: JSON.stringify(jsObject)
+    })
+    .then(res =>
+         {
+            if (!res.ok) {
+                throw new Error('Network response was not ok:', res.status);
+            } else {
+                return res.json();
+            }
+         }
+    )
+    .then(data => {
+        if (data.success) {
+            console.log('member with ID', data.member, 'removed');
+            location.reload(true);
+        }
+        
+    })
+    .catch(err => {
+        console.error(err);
+    })
 }

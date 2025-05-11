@@ -98,6 +98,7 @@ function displayTasks(tasks) {
 // code for showing members in popup.
 
 const membersDropdown = _('.view-members-dropdown');
+let teamMembers;
 
 _('.view-members-btn').addEventListener('click', showmembersDropdown);
 _('.close-members-popup').addEventListener('click', showmembersDropdown);
@@ -105,4 +106,55 @@ _('.close-members-popup').addEventListener('click', showmembersDropdown);
 function showmembersDropdown(){
     membersDropdown.classList.toggle('active');
     console.log('dropdown clicked');
+    console.log('project ID', projectId);
+    getMembers();
+}
+
+function getMembers() {
+    fetch(`/get-members/${projectId}`)
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response wasnot ok:', res.status);
+        } else{ 
+            return res.json();
+        }
+    })
+    .then(data => {
+        console.log('Team members', data.members);
+        teamMembers = data.members;
+        showMembers(teamMembers);
+    })
+}
+
+function showMembers(members) {
+    const membersList = _('.members-list');
+    membersList.innerHTML = '';
+
+
+    members.forEach(member => {
+        const memberCard = document.createElement('li');
+        memberCard.classList = 'member-card';
+
+        memberCard.innerHTML = `
+            ${member.name}
+        `;
+
+        membersList.appendChild(memberCard);
+    }) 
+}
+
+// search member by name.
+
+const searchBar = _('.search-member-bar');
+searchBar.addEventListener('keyup', filterMembers);
+
+
+function filterMembers() {
+    const searchContent = searchBar.value;
+    console.log(searchContent);
+
+    let filteredMembers = teamMembers.filter(m => m.name.includes(searchContent));
+    console.log(filteredMembers);
+
+    showMembers(filteredMembers);
 }
