@@ -1,5 +1,9 @@
 <?php
 
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\CommentsController;
+>>>>>>> 07f4412 (Recovered project and added new code)
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TeamController;
@@ -10,6 +14,10 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewPasswordController;
 use App\Http\Controllers\ResetPasswordController;
+<<<<<<< HEAD
+=======
+use PhpParser\NodeVisitor\CommentAnnotatingVisitor;
+>>>>>>> 07f4412 (Recovered project and added new code)
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 // To return to sign in page.
@@ -76,6 +84,11 @@ Route::post('/create-task', [TaskController::class, 'createTask'])->name('create
 //Route to get a project's tasks.
 Route::post('/get-tasks', [TaskController::class, 'getTasks']);
 
+<<<<<<< HEAD
+=======
+// View tasks.
+Route::get('/view-task/{task}', [TaskController::class, 'viewTask']);
+>>>>>>> 07f4412 (Recovered project and added new code)
 //Route to start task assignment process.
 Route::post('/assign-task', [TaskController::class, 'assignTask']);
 
@@ -109,5 +122,19 @@ Route::get('/user-in-team/{user}', [UserController::class, 'checkIfUserAlreadyIn
 
 Route::get('/get-team-projects/{team}', [TeamController::class, 'getTeamProjects']);
 
+<<<<<<< HEAD
 //remove team member.
 Route::post('/remove-member', [TeamController::class, 'removeMember']);
+=======
+//Remove team member.
+Route::post('/remove-member', [TeamController::class, 'removeMember']);
+
+//Get comments for a task
+Route::get('/get-comments/{task}', [CommentsController::class, 'getTaskComments']);
+
+//Publish a comment.
+Route::post('/publish-comment', [CommentsController::class, 'publishComment'])->name('comment.publish');
+
+// Delete a comment.
+Route::post('/delete-comment', [CommentsController::class, 'deleteComment']);
+>>>>>>> 07f4412 (Recovered project and added new code)

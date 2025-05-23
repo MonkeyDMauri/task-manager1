@@ -170,6 +170,7 @@ function displayTeamProjects(projects) {
     const projectsList = _('.team-projects-list');
     projectsList.innerHTML = '';
 
+<<<<<<< HEAD
     projects.forEach(pro => {
         const projectCard = document.createElement('li');
         projectCard.classList = 'project-card';
@@ -184,6 +185,30 @@ function displayTeamProjects(projects) {
 
         projectsList.appendChild(projectCard);
     })
+=======
+    if (projects.length > 0) {
+        projects.forEach(pro => {
+            const projectCard = document.createElement('li');
+            projectCard.classList = 'project-card';
+    
+            projectCard.innerHTML = `
+                <h2>ID: ${pro.id}</h2>
+                <h2>Name: ${pro.name}</h2>
+                <h2>Tasks: ${pro.number_of_tasks}</h2>
+    
+                <a href="/project/${pro.id}">view project</a>
+            `;
+    
+            projectsList.appendChild(projectCard);
+        })
+    } else {
+        projectsList.innerHTML = `
+            <a href="/manager-dashboard">Go to create project</a>
+        `;
+    }
+
+    
+>>>>>>> 07f4412 (Recovered project and added new code)
 }
 
 // CODE TO REMOVE A TEAM MEMBER.

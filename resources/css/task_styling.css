@@ -1,0 +1,165 @@
+
+body {
+    background-color: black;
+    color: white;
+}
+
+/* TASK OVERVIEW STYLING */
+
+.task-overview-header {
+    margin: 2rem;
+    border: 1.5px solid white;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.task-overview-header h1{
+    font-size: 3rem;
+    color: rgb(62, 62, 221);
+    font-weight: 500;
+}
+
+.task-overview-header h2{
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.task-overview-header p{
+    font-size: 1.5rem;
+}
+
+.task-overview-info {
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.task-overview-info1 {
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+
+
+/* COMMENTS SECTION STYLING */
+
+.create-comment-wrapper {
+    padding: 1rem;
+}
+
+.create-comment-wrapper label{
+    font-size: 2rem;
+}
+
+.create-comment-wrapper textarea{
+    resize: none;
+    border: solid 1px white;
+    width: 400px;
+    height: 110px;
+    padding: .5rem;
+}
+
+.create-comment-wrapper button{
+    border: solid 1px white;
+    background-color: rgb(62, 62, 221);
+    padding: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.comments-section {
+    padding: 2rem;
+}
+
+.comments-section-header {
+    padding: 1rem;
+    border: 1px white solid;
+    border-radius: .5rem;
+}
+
+.comments-section-header h1{
+    color: rgb(62, 62, 221);
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comments-wrapper h1 {
+    font-size: 1.8rem;
+}
+
+.comment-card {
+    border: solid 1px white;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 500px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.comment-header h1{
+    font-size: 1.3rem;
+}
+
+.delete-comment-btn {
+    margin-top: .5rem;
+    border: 1px solid white;
+    padding: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+/*the following styling is for the popup regarding the deletion of a comment so its basically for confirmation*/
+.delete-comment-popup-wrapper {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.delete-comment-popup-wrapper.active {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.delete-comment-popup-wrap {
+    background-color: rgb(43, 41, 41);
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+}
+
+.delete-comment-popup-wrap h1{
+    font-size: 1.5rem;
+}
+
+.delete-comment-btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+.delete-comment-btn-wrapper button{
+    padding: .5rem 1.5rem;
+    border: 1px solid white;
+    border-radius: .5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
