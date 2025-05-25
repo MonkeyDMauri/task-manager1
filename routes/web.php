@@ -122,10 +122,6 @@ Route::get('/user-in-team/{user}', [UserController::class, 'checkIfUserAlreadyIn
 
 Route::get('/get-team-projects/{team}', [TeamController::class, 'getTeamProjects']);
 
-<<<<<<< HEAD
-//remove team member.
-Route::post('/remove-member', [TeamController::class, 'removeMember']);
-=======
 //Remove team member.
 Route::post('/remove-member', [TeamController::class, 'removeMember']);
 
@@ -137,4 +133,4 @@ Route::post('/publish-comment', [CommentsController::class, 'publishComment'])->
 
 // Delete a comment.
 Route::post('/delete-comment', [CommentsController::class, 'deleteComment']);
->>>>>>> 07f4412 (Recovered project and added new code)
+
