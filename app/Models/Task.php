@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     //
-<<<<<<< HEAD
-    protected $fillable = ['name', 'description', 'status', 'priority', 'project_id', 'assigned_to', 'completed_by', 'created_at'];
-=======
     protected $fillable = ['name', 'description', 'status', 'priority', 'project_id', 'assigned_to', 'completed_by', 'created_at', 'created_by'];
->>>>>>> 07f4412 (Recovered project and added new code)
 
     protected $table = 'tasks';
 
@@ -26,11 +22,8 @@ class Task extends Model
     public function completedByUser(){ 
         return $this->belongsTo(User::class, 'completed_by');
     }
-<<<<<<< HEAD
-=======
 
     public function owner() {
         return $this->belongsTo(User::class, 'created_by');
     }
->>>>>>> 07f4412 (Recovered project and added new code)
 }

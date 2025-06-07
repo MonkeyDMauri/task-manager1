@@ -18,7 +18,7 @@
         <ul class="nav-links">
             <li><a href="#teams">Teams</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="{{route('settings.view')}}">Settings</a></li>
             <li class="logout-btn">Logout</li>
         </ul>
     </nav>
@@ -29,10 +29,7 @@
 
     <section class="create-project-section">
         <h1>Create a new project</h1>
-<<<<<<< HEAD
-=======
         <p>(Do not forget to create a team in case you don't have one)</p>
->>>>>>> 07f4412 (Recovered project and added new code)
         <form action="{{route('project.create')}}" method="POST">
             @csrf
             <div class="create-project-form">

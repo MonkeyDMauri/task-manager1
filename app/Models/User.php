@@ -51,4 +51,12 @@ class User extends Authenticatable
     public function teams() {
         return $this->belongsToMany(Team::class)->withTimestamps();
     }
+
+    public function formattedCreatedAt() {
+        return $this->created_at->format('m-d-Y');
+    }
+
+    public function formattedUpdateAt() {
+        return $this->updated_at->format('m-d-Y');
+    }
 }

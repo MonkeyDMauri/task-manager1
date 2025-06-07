@@ -1,0 +1,101 @@
+
+
+body {
+    background-color: black;
+    color: aliceblue;
+}
+
+/* SETTINGS HEADER */
+.settings-header-wrapper {
+    padding: 2rem;
+}
+
+.settings-header-wrapper h1{
+    font-size: 2.5rem;
+    font-weight: 550;
+    color: rgb(47, 34, 228);
+    cursor: default;
+}
+
+.settings-header-wrapper h2{ /* this one here is just for the back arrow button */
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+/*PERSONAL INFO STYLING*/
+
+.personal-info-wrapper {
+    padding: 2rem;
+}
+
+.personal-info-title-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.personal-info-title-wrapper h1{
+    font-size: 2.5rem;
+}
+
+.personal-info-title-wrapper p{
+    font-size: 1.5rem;
+}
+
+.basic-personal-info-wrapper {
+    padding: 4rem;
+    width: 1000px;
+}
+
+.basic-personal-info-title h1{
+    font-size: 2rem;
+}
+
+.info-piece {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+}
+
+.click-2-see-info {
+    float: right;
+}
+
+.info-piece-wrapper {
+    margin-top: 2rem;
+}
+
+.info-piece-wrapper h1 {
+    font-size: 1.5rem;
+}
+
+.info-piece {
+    margin: 1rem 0;
+}
+
+/*  UPDATE NAME PAGE SPECIFIC STYLING */
+
+.update-name-form-container {
+    padding: 2rem;
+    font-size: 1.5rem;
+}
+
+.update-name-form-container input{
+    border: solid 1px white;
+    padding: .3rem;
+}
+
+.update-name-form-container button{
+    border: solid 1px white;
+    padding: .3rem .8rem;
+    background-color: rgb(47, 34, 228);
+    border-radius: .5rem;
+    margin-top: .6rem;
+    cursor: pointer;
+}
+
+.tuf div {
+    margin: 1.5rem 0;
+}
+

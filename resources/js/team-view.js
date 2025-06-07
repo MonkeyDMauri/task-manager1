@@ -170,7 +170,6 @@ function displayTeamProjects(projects) {
     const projectsList = _('.team-projects-list');
     projectsList.innerHTML = '';
 
-<<<<<<< HEAD
     projects.forEach(pro => {
         const projectCard = document.createElement('li');
         projectCard.classList = 'project-card';
@@ -185,7 +184,6 @@ function displayTeamProjects(projects) {
 
         projectsList.appendChild(projectCard);
     })
-=======
     if (projects.length > 0) {
         projects.forEach(pro => {
             const projectCard = document.createElement('li');
@@ -208,7 +206,6 @@ function displayTeamProjects(projects) {
     }
 
     
->>>>>>> 07f4412 (Recovered project and added new code)
 }
 
 // CODE TO REMOVE A TEAM MEMBER.

@@ -88,15 +88,12 @@ function displayTasks(tasks) {
                 <label>Completed by</label>
                 <p>${task.who_completed_it}</p>
             </div>
-<<<<<<< HEAD
             
-=======
             <div>
                 <label>Created by</label>
                 <p>${task.creator}</p>
             </div>
             <a href="/view-task/${task.id}">View Task</a>
->>>>>>> 07f4412 (Recovered project and added new code)
         `;
 
         tasksContainer.appendChild(taskWrap);
@@ -144,12 +141,9 @@ function showMembers(members) {
         memberCard.classList = 'member-card';
 
         memberCard.innerHTML = `
-<<<<<<< HEAD
             ${member.name}
-=======
             <h1>${member.name}</h1>
             <h1>id ${member.id}</h1>
->>>>>>> 07f4412 (Recovered project and added new code)
         `;
 
         membersList.appendChild(memberCard);
@@ -170,11 +164,5 @@ function filterMembers() {
     console.log(filteredMembers);
 
     showMembers(filteredMembers);
-<<<<<<< HEAD
-}
-=======
 }
 
-
-
->>>>>>> 07f4412 (Recovered project and added new code)

@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-<<<<<<< HEAD
-=======
 use App\Models\User;
->>>>>>> 07f4412 (Recovered project and added new code)
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -22,10 +19,7 @@ class TaskController extends Controller
         ]);
 
         $input['description'] = $request->input('description');
-<<<<<<< HEAD
-=======
         $input['created_by'] = auth()->user()->id;
->>>>>>> 07f4412 (Recovered project and added new code)
 
 
         Task::create($input);
@@ -64,29 +58,22 @@ class TaskController extends Controller
             //getting the name of the employee assigned to do this task and storing it in a new variable inside the task instance we are sending as a response.
             $task->assigned_employee = $task->assignedUser ? $task->assignedUser->name : 'unassigned';
             $task->who_completed_it = $task->completedByUser ? $task->completedByUser->name : 'unassigned';
-<<<<<<< HEAD
-=======
+
             $task->creator = $task->owner ? $task->owner->name : NULL; 
->>>>>>> 07f4412 (Recovered project and added new code)
         }
 
         return response()->json(['success' => true, 'tasks' => $tasks]);
     }
 
-<<<<<<< HEAD
-=======
     // assign a task to a user.
->>>>>>> 07f4412 (Recovered project and added new code)
     public function assignTask(Request $request) {
         $request->validate([
             'task_id' => 'required|integer',
             'user_id' => 'required|integer'
         ]);
 
-<<<<<<< HEAD
         $task = Task::findOrFail($request->task_id);
 
-=======
         // trying to retreive model intance of the task.
         $task = Task::where('id', $request->task_id)->first();
 
@@ -103,21 +90,16 @@ class TaskController extends Controller
         }
 
         // if the task and user were able to be found then we update the task.
->>>>>>> 07f4412 (Recovered project and added new code)
         $task->update([
             'assigned_to' => $request->user_id
         ]);
 
-<<<<<<< HEAD
-=======
+
         // save update.
->>>>>>> 07f4412 (Recovered project and added new code)
         $task->save();
 
         return back();
     }
-<<<<<<< HEAD
-=======
 
     public function viewTask(Task $task) {
 
@@ -129,5 +111,4 @@ class TaskController extends Controller
 
         return view('home.view-task', ['task' => $task]);
     }
->>>>>>> 07f4412 (Recovered project and added new code)
 }

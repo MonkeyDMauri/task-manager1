@@ -1,23 +1,21 @@
 <?php
 
-<<<<<<< HEAD
-=======
-use App\Http\Controllers\CommentsController;
->>>>>>> 07f4412 (Recovered project and added new code)
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NewPasswordController;
+
+
 use App\Http\Controllers\ResetPasswordController;
-<<<<<<< HEAD
-=======
 use PhpParser\NodeVisitor\CommentAnnotatingVisitor;
->>>>>>> 07f4412 (Recovered project and added new code)
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 // To return to sign in page.
@@ -29,6 +27,8 @@ Route::get('/', function () {
 Route::get('/login', function() {
     return view('login_signin.login');
 });
+
+Route::get('/logout-from-employee', [UserController::class, 'logoutFromEmployeePage']);
 
 // Route to sign user in.
 Route::post('/signin', [UserController::class, 'signin']);
@@ -51,13 +51,14 @@ Route::post('/reset-password', [NewPasswordController::class, 'store'])->name('p
 // Route to call method that will redirect user to correct page depending on their role.
 Route::get('/redirect-user', [DashboardController::class, 'takeUserToRightPage'])->name('redirect.user');
 
+// Go to manager home page.
 Route::get('/manager-dashboard', [ManagerController::class, 'viewManagerPage'])->name('manager.dashboard');
 
 //Route to go to create team form.
 Route::get('/manager-dashboard/create-team', [ManagerController::class, 'ViewCreateTeamForm']);
 
 Route::get('/employee-dashboard', function () {
-    return view('home.employee-home');
+    return view('employee_view.employee-home');
 })->name('employee.dashboard');
 
 
@@ -84,11 +85,9 @@ Route::post('/create-task', [TaskController::class, 'createTask'])->name('create
 //Route to get a project's tasks.
 Route::post('/get-tasks', [TaskController::class, 'getTasks']);
 
-<<<<<<< HEAD
-=======
 // View tasks.
 Route::get('/view-task/{task}', [TaskController::class, 'viewTask']);
->>>>>>> 07f4412 (Recovered project and added new code)
+
 //Route to start task assignment process.
 Route::post('/assign-task', [TaskController::class, 'assignTask']);
 
@@ -134,3 +133,23 @@ Route::post('/publish-comment', [CommentsController::class, 'publishComment'])->
 // Delete a comment.
 Route::post('/delete-comment', [CommentsController::class, 'deleteComment']);
 
+
+// Settings view.
+Route::get('/settings-view', [SettingsController::class, 'viewSettings'])->name('settings.view');
+
+// Update username view.
+Route::get('/settings-view/update-name-view', [SettingsController::class, 'viewUpdateNamePage'])->name('settings.update.name');
+
+// Update name.
+Route::post('/settings-view/update-name-view/update-name', [SettingsController::class, 'updateName'])->name('name.update');
+
+// Update email view
+Route::get('/settings-view/update-email-view', [SettingsController::class, 'viewUpdateEmailPage'])->name('settings.update.email');
+
+// update email.
+Route::post('/settings-view/update-name-view/update-email', [SettingsController::class, 'updateEmail'])->name('email.update');
+
+// update password view.
+Route::get('/setings-view/update-password-view', [SettingsController::class, 'viewUpdatePassword'])->name('settings.update.password');
+
+Route::post('/settings-view/update-name-view/update-password', [SettingsController::class, 'updatePassword'])->name('password.update');

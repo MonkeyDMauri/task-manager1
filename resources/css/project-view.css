@@ -74,14 +74,11 @@ body {
     padding: 1.5rem;
 }
 
-<<<<<<< HEAD
-=======
 .tasks-container {
     overflow-y: auto;
     max-height: 500px;
 }
 
->>>>>>> 07f4412 (Recovered project and added new code)
 .header-name {
     font-size: 3rem;
 }
@@ -161,13 +158,10 @@ body {
     visibility: hidden;
     pointer-events: none;
     position: absolute;
-<<<<<<< HEAD
     top: -100px;
     right: 210px;
-=======
     top: -180px;
     right: 230px;
->>>>>>> 07f4412 (Recovered project and added new code)
     background-color: black;
     border: 1px solid white;
     border-radius: .5rem;
@@ -186,9 +180,6 @@ body {
     border: 1px solid white;
     padding: .5rem;
     border-radius: .5rem;
-<<<<<<< HEAD
-}
-=======
     max-height: 150px;
     overflow-y: auto;
     
@@ -199,4 +190,3 @@ body {
     justify-content: space-between;
 }
 
->>>>>>> 07f4412 (Recovered project and added new code)

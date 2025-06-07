@@ -1,0 +1,111 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+/*NAVIGATION BAR STYLING*/
+
+.employee-home-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: rgb(8, 71, 187);
+}
+
+.employee-home-nav h1{
+    font-size: 2.5rem;
+    cursor: default;
+}
+
+.employee-home-nav p{
+    font-size: 1.5rem;
+    margin: 0;
+    cursor: default;
+}
+
+.nav-links-wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links-wrapper li{
+    font-size: 2rem;
+}
+
+/*LOGOUT POPUP STYLING*/
+
+.logout-popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.6);
+
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logout-popup-wrapper.show {
+    display: flex;
+}
+
+.logout-popup-wrap {
+    background-color: rgb(105, 104, 104);
+    color: aliceblue;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+}
+
+.logout-popup-wrap h1{
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+.logout-btn-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logout-btn-wrapper button{
+    font-size: 1.5rem;
+    border: solid 1px white;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+/*TASKS SECTION STYLING*/
+
+.tasks-section {
+    padding: 3rem;
+}
+
+.tasks-section h1{
+    font-size: 2.5rem;
+    color: rgb(12, 90, 233);
+    font-weight: 500;
+}
+
+.tasks-section-header {
+    padding: 1rem;
+}
+
+.tasks-section-header label{
+    font-size: 1.5rem;
+}
+
+.tasks-section-header input{
+    padding: .2rem;
+    border: 1px solid white;
+    font-size: 1.5rem;
+}
+
+.clear-search-btn {
+    padding: .2rem .3rem;
+    cursor: pointer;
+    border: 1px solid white;
+}

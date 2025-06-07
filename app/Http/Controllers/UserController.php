@@ -42,6 +42,17 @@ class UserController extends Controller
 
         return view('login_signin.login');
     }
+
+    // this logout is for when an employee logs out from employee home page.
+    public function logoutFromEmployeePage(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return response()->json(['message' => 'logout was successfull']);
+
+    }
     public function getTeams() {
         
         $user = User::findOrFail(auth()->user()->id);

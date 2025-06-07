@@ -22,7 +22,7 @@ class NewPasswordController extends Controller
             'password' => 'required|min:4|confirmed'
         ]);
 
-        // if validatio is successful then we use the Password::reset function to reset password.
+        // if validation is successful then we use the Password::reset function to reset password.
         // first paramater is to verify that the reset password token is there, that theres a user in the users table matching 
         // the entered email address which will then return the user instance
         // it also verifies that password and password_confirmation match.
