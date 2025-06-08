@@ -2,6 +2,8 @@ function _(element) {
     return document.querySelector(element);
 }
 
+const csrf_token = _('meta[name="csrf-token"]').getAttribute('content');
+
 // LOGOUT CODE
 
 //buttons that will trigger the toggle function to show/hide the logout popup.
@@ -31,3 +33,30 @@ function logout() {
         window.location.href="/login";
     })
 }
+
+// CODE TO GET ALL TASK AND DO THINGS WITH THEM.
+
+function getTasks() {
+    fetch('/get-tasks',{
+        method:"POST",
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        'X-CSRF-TOKEN' : csrf_token
+    })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok:', res.status);
+        } else {
+            return res.json()
+        }
+    })
+    .then(data => {
+        console.log('Tasks:', data.tasks);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+getTasks();

@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function formattedUpdateAt() {
         return $this->updated_at->format('m-d-Y');
     }
+
+    public function tasks() {
+        return $this->hasMany(Task::class, 'assigned_to');
+    }
 }

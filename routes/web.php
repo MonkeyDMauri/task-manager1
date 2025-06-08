@@ -153,3 +153,7 @@ Route::post('/settings-view/update-name-view/update-email', [SettingsController:
 Route::get('/setings-view/update-password-view', [SettingsController::class, 'viewUpdatePassword'])->name('settings.update.password');
 
 Route::post('/settings-view/update-name-view/update-password', [SettingsController::class, 'updatePassword'])->name('password.update');
+
+// EMPLOYEE RELATED ROUTES.
+
+Route::post('/get-tasks', [UserController::class, 'getTasks']);

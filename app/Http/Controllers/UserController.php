@@ -61,4 +61,12 @@ class UserController extends Controller
 
         return response()->json(['teams' => $teams]);
     }
+
+    public function getTasks() {
+        $user = auth()->user();
+
+        $tasks = $user->tasks;
+
+        return response()->json(['tasks' => $tasks]);
+    }
 }
