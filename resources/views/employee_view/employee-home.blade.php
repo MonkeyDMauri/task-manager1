@@ -48,9 +48,25 @@
 <hr>
         <div class="tasks-wrapper">
 
-            <ul class="tasks-list">
+            <table class="tasks-list-table">
+                <caption>Tasks</caption>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Project</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Status</th>
+                        <th>Author</th>
+                        <th>Created at</th>
+                        <th>Last Update</th>
+                    </tr>
+                </thead>
+                <tbody class="tasks-table-body">
                 {{-- this will be filled using JS --}}
-            </ul>
+                </tbody>
+            </table>
         </div>
 
     </section>

@@ -13,6 +13,8 @@ const jsonData = {
 }
 
 function getTasks() {
+    console.log('getting tasks...');
+    console.log('project ID:', jsonData);
     fetch('/get-tasks', {
         method: 'POST',
         headers : {
@@ -47,6 +49,7 @@ function getTasks() {
 getTasks();
 
 function displayTasks(tasks) {
+    console.log('displaying tasks');
     const tasksContainer = _('.tasks-container');
     tasksContainer.innerHTML = '';
 

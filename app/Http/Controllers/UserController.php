@@ -67,6 +67,13 @@ class UserController extends Controller
 
         $tasks = $user->tasks;
 
+        foreach($tasks as $task) {
+            $task['project'] = $task->project;
+            $task['created_at_formatted'] = $task->createdAt();
+            $task['author'] = $task->owner ? $task->owner->name : 'Not Defined';
+            $task['last_update'] = $task->formatedLastUpdate();
+        }
+
         return response()->json(['tasks' => $tasks]);
     }
 }

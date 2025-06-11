@@ -109,3 +109,21 @@ body {
     cursor: pointer;
     border: 1px solid white;
 }
+
+.tasks-list-table {
+    width: 1000px;
+    font-size: 1.4rem;
+}
+
+.tasks-list-table th{
+    border: solid 1px white;
+    background-color: rgb(133, 124, 124);
+    padding: .2rem;
+}
+
+.tasks-list-table td{
+    text-align: center;
+    border: solid 1px white;
+    padding: .2rem;
+
+}

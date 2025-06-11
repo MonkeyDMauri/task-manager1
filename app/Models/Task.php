@@ -15,6 +15,10 @@ class Task extends Model
         return $this->created_at->format('Y/m/d');
     }
 
+    public function formatedLastUpdate() {
+        return $this->updated_at->format('Y/m/d');
+    }
+
     public function assignedUser() {
         return $this->belongsTo(User::class, 'assigned_to');
     }
@@ -25,5 +29,9 @@ class Task extends Model
 
     public function owner() {
         return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function project() {
+        return $this->belongsTo(Project::class);
     }
 }
