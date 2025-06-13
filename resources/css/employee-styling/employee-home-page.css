@@ -111,8 +111,13 @@ body {
 }
 
 .tasks-list-table {
-    width: 1000px;
+    width: 1500px;
     font-size: 1.4rem;
+}
+
+.tasks-list-table caption {
+    font-size: 1.7rem;
+    margin: .8rem 0;
 }
 
 .tasks-list-table th{
@@ -126,4 +131,16 @@ body {
     border: solid 1px white;
     padding: .2rem;
 
+}
+
+.search-bar-wrapper select{
+    border: 1px solid white;
+    padding: .5rem;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+}
+
+.check-task:hover {
+    color: blue;
+    cursor: pointer;
 }

@@ -111,4 +111,15 @@ class TaskController extends Controller
 
         return view('home.view-task', ['task' => $task]);
     }
+
+    public function openTaskFromEmployeePage(Task $task) {
+
+        // checking to see if the current logged in user should be able to see the task whose ID is being
+        // retreived from URL/
+        if ($task->assigned_to != auth()->user()->id) {
+            return abort('403', 'you dont have permissions to see this task');
+        }
+
+        return view('employee_view.task-view-emp', ['task' => $task]);
+    }
 }

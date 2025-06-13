@@ -42,7 +42,18 @@
                     <label for="search-task">Search by name</label>
                     <input type="text" id="search-task" placeholder="Type something...">
                     <button class="clear-search-btn">X</button>
+
+                    <div>
+                        <label for="searchBy">search by</label>
+                        <select id="searchBy">
+                            <option value="name">name</option>
+                            <option value="project">project</option>
+                            <option value="author">author</option>
+                        </select>
+                    </div>
+                    
                 </div>
+
         </div>
 
 <hr>
