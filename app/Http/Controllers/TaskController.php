@@ -103,7 +103,10 @@ class TaskController extends Controller
 
     public function viewTask(Task $task) {
 
+        // checking to see if the current logged in user should be able to see the task whose ID is being
+        // retreived from URL
         if ($task->created_by !== auth()->user()->id) {
+            // returning error message in case user is not supposed to be able to see task.
             return abort('403', 'you dont have permissions to see this');
         }
 
@@ -115,8 +118,9 @@ class TaskController extends Controller
     public function openTaskFromEmployeePage(Task $task) {
 
         // checking to see if the current logged in user should be able to see the task whose ID is being
-        // retreived from URL/
+        // retreived from URL
         if ($task->assigned_to != auth()->user()->id) {
+            // returning error message in case user is not supposed to be able to see task.
             return abort('403', 'you dont have permissions to see this task');
         }
 
