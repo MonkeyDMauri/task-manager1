@@ -116,8 +116,10 @@ body {
 }
 
 .tasks-list-table caption {
-    font-size: 1.7rem;
+    font-size: 3rem;
     margin: .8rem 0;
+    text-align: start;
+
 }
 
 .tasks-list-table th{

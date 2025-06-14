@@ -44,7 +44,6 @@ if (document.querySelector('body.manager-settings')) {
 }
 
 // EMPLOYEE IMPORTS
-
 if (document.querySelector('body.employee-home')) {
     import('../css/employee-styling/employee-home-page.css');
     import('./employee/employee-home.js');

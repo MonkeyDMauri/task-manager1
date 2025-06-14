@@ -177,5 +177,5 @@ function getTaskID(e){
 
 // redirecting user to another URL which belongs to a route taht then redirects them to the task page.
 function openTask(taskId) {
-    window.location.href = `/open-task/${taskId}`
+    window.location.href = `/view-task/${taskId}`;
 }

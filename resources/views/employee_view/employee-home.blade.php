@@ -60,7 +60,7 @@
         <div class="tasks-wrapper">
 
             <table class="tasks-list-table">
-                <caption>Tasks</caption>
+                <caption>Tasks Table</caption>
                 <thead>
                     <tr>
                         <th>ID</th>

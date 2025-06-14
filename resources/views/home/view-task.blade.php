@@ -13,7 +13,11 @@
 <body class="task-view">
     <section class="task-overview-header">
         <div style="display: flex; align-items:center;">
-            <a href='/project/{{$task->project_id}}' style="font-size: 2.5rem;"><-</a>
+            @if(auth()->user()->role === 'manager')
+                <a href='/project/{{$task->project_id}}' style="font-size: 2.5rem;"><-</a>
+            @else
+                <a href='{{route('employee.dashboard')}}' style="font-size: 2.5rem;"><-</a>
+            @endif
             <h1>Task Overview</h1>
         </div>
         
@@ -44,13 +48,32 @@
                 <p>{{$task->creator}}</p>
             </div>
         </div>
-        <div class="task-overview-info1">
+        <div class="task-overview-info1" style='align-items:center;'>
             
             <div style="display: flex; gap:8px; align-items:center;">
                 <h2>Description:</h2>
                 <p>{{$task->description}}</p>
             </div>
+            
+            <div class="complete-task-btn-container">
+                <form action="{{route('update.task.status')}}" method="GET">
+                    @csrf
+                    <input type="hidden" value="{{$task->id}}" name="task_id">
+                    {{-- this button will change depending on the status of the task by using PHP/blade templates --}}
+                    @if($task->status == 'pending')
+                        <button class="change-task-status-btn">mark task as done</button>
+                    @else
+                        <button class="change-task-status-btn">mark task as pending</button>
+                    @endif
+                </form>
+            </div>
+
+            <div class="complete-task-btn-container">
+                {{-- this button will change depending on the status of the task by using JAVASCRIPT --}}
+            </div>
         </div>
+
+        
     </section>
 
     <section class="comments-section">

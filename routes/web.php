@@ -86,7 +86,7 @@ Route::post('/create-task', [TaskController::class, 'createTask'])->name('create
 Route::post('/get-tasks', [TaskController::class, 'getTasks']);
 
 // View tasks.
-Route::get('/view-task/{task}', [TaskController::class, 'viewTask']);
+Route::get('/view-task/{task}', [TaskController::class, 'viewTask'])->name('view.task');
 
 //Route to start task assignment process.
 Route::post('/assign-task', [TaskController::class, 'assignTask']);
@@ -154,8 +154,11 @@ Route::get('/setings-view/update-password-view', [SettingsController::class, 'vi
 
 Route::post('/settings-view/update-name-view/update-password', [SettingsController::class, 'updatePassword'])->name('password.update');
 
+/// ---
+
 // EMPLOYEE RELATED ROUTES.
 
+// Get tasks belonging to the currently logged in employee, so not all tasks will be retreived.
 Route::post('/get-tasks-from-employee-view', [UserController::class, 'getTasks']);
 
-Route::get('/open-task/{task}', [TaskController::class, 'openTaskFromEmployeePage']);
+Route::get('/update-task-status', [TaskController::class, 'updateClassStatus'])->name('update.task.status');

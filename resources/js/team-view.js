@@ -170,20 +170,8 @@ function displayTeamProjects(projects) {
     const projectsList = _('.team-projects-list');
     projectsList.innerHTML = '';
 
-    projects.forEach(pro => {
-        const projectCard = document.createElement('li');
-        projectCard.classList = 'project-card';
-
-        projectCard.innerHTML = `
-            <h2>ID: ${pro.id}</h2>
-            <h2>Name: ${pro.name}</h2>
-            <h2>Tasks: ${pro.number_of_tasks}</h2>
-
-            <a href="/project/${pro.id}">view project</a>
-        `;
-
-        projectsList.appendChild(projectCard);
-    })
+    // if the projects array is 0 it means there are no projects, if thats the case then a message will show up
+    // otherwise the actual projects will show up.
     if (projects.length > 0) {
         projects.forEach(pro => {
             const projectCard = document.createElement('li');

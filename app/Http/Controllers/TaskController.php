@@ -104,8 +104,8 @@ class TaskController extends Controller
     public function viewTask(Task $task) {
 
         // checking to see if the current logged in user should be able to see the task whose ID is being
-        // retreived from URL
-        if ($task->created_by !== auth()->user()->id) {
+        // retreived from URL, whethet they are the creator or the person this task is aassigned to.
+        if ($task->created_by !== auth()->user()->id && $task->assigned_to !== auth()->user()->id) {
             // returning error message in case user is not supposed to be able to see task.
             return abort('403', 'you dont have permissions to see this');
         }
@@ -115,15 +115,27 @@ class TaskController extends Controller
         return view('home.view-task', ['task' => $task]);
     }
 
-    public function openTaskFromEmployeePage(Task $task) {
+    // update task status, if its pending it will now be done and viceversa.
+    public function updateClassStatus(Request $request) {
+        $input = $request->validate([
+            'task_id' => 'required'
+        ]);
 
-        // checking to see if the current logged in user should be able to see the task whose ID is being
-        // retreived from URL
-        if ($task->assigned_to != auth()->user()->id) {
-            // returning error message in case user is not supposed to be able to see task.
-            return abort('403', 'you dont have permissions to see this task');
+        $task = Task::findOrFail($input['task_id']);
+
+        // if the task's status is currently **pending** then it needs to be changed to **done**
+        // and viceversa.
+        if ($task->status === 'pending') {
+            $task->update([
+                'status' => 'done'
+            ]);
+        } else {
+            $task->update([
+                'status' => 'pending'
+            ]);
         }
 
-        return view('employee_view.task-view-emp', ['task' => $task]);
+        // afterwards we just send the user to the route that's for having an overview of the task, also passing the task as a parameter.
+        return redirect()->route('view.task', ['task' => $task])->with('success', 'task status was updated');
     }
 }

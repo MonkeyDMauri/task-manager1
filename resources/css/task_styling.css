@@ -41,6 +41,13 @@ body {
 }
 
 
+.change-task-status-btn{ 
+    padding: .5rem 1rem;
+    background-color: rgb(62, 62, 221);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
 
 /* COMMENTS SECTION STYLING */
 
@@ -166,3 +173,4 @@ body {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
