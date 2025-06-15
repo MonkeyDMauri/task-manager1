@@ -5,13 +5,15 @@ function _(element) {
 // importan variables.
 const currentUserId = _('meta[name="current_user_id"]').getAttribute('content');
 let commentToBeDeleted;
+const taskId = _('meta[name="task_id_reference"]').getAttribute('content');
+const rawTaskObject = _('meta[name="task-object"]').getAttribute('content');
+const taskObject = JSON.parse(rawTaskObject);
+
 
 // COMMENTS CODE
 
-const taskId = _('meta[name="task_id_reference"]').getAttribute('content');
 const commentsList = _('.comments-list'); // element holding all comments.
 let allComments = []; // this variable is meant to contain a collection of all comment intances.
-console.log('Task ID', taskId);
 
 function getComments() {
     fetch(`/get-comments/${taskId}`)
@@ -119,7 +121,6 @@ function deleteComment() {
     .then(data => {
 
         if (data.success) {
-            console.log('comment was deleted');
             window.location.reload(true);
         }
         
@@ -128,4 +129,25 @@ function deleteComment() {
     .catch(err => {
         console.error(err);
     })
+}
+
+
+displayUpdateTaskStatusBtn(taskObject);
+
+function displayUpdateTaskStatusBtn(task) {
+    console.log('Task object:', task);
+    console.log('Task status:', task.status);
+
+    // grabbing button container to then embed a button depending on the status of the task
+    const btnCon  = document.querySelector('.complete-task-btn-container-js');
+
+    btnCon.innerHTML = `
+        ${task.status === 'done' ? '<button class="update-task-status">mark as pending JS</button>' : '<button class="update-task-status">mark as done JS</button>'}
+    `;
+
+    // if (task.status === 'done'){
+    //     console.log('THIS TASK IS DONE')
+    // } else if (task.status === 'pending') {
+    //     console.log('THIS TASK IS PENDING');
+    // }
 }

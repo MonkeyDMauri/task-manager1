@@ -48,6 +48,15 @@ body {
     cursor: pointer;
 }
 
+.update-task-status {
+    background-color: yellow;
+    color: black;
+    font-weight: 600;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
 
 /* COMMENTS SECTION STYLING */
 

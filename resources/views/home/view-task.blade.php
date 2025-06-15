@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="task_id_reference" content="{{$task->id}}">
-    <meta name='current_user_id' content="{{auth()->user()->id}}">
-    <meta name="csrf-token" content="{{csrf_token()}}">
+    <meta name="task-object" content='{{$task}}'>
+    <meta name="task_id_reference" content='{{$task->id}}'>
+    <meta name='current_user_id' content='{{auth()->user()->id}}'>
+    <meta name="csrf-token" content='{{csrf_token()}}'>
     <title>Task overview</title>
     @vite('resources/js/app.js')
 </head>
@@ -59,7 +60,7 @@
                 <form action="{{route('update.task.status')}}" method="GET">
                     @csrf
                     <input type="hidden" value="{{$task->id}}" name="task_id">
-                    {{-- this button will change depending on the status of the task by using PHP/blade templates --}}
+                    {{-- this button will change depending on the status of the task by using PHP/Blade/Laravel templates --}}
                     @if($task->status == 'pending')
                         <button class="change-task-status-btn">mark task as done</button>
                     @else
@@ -68,7 +69,7 @@
                 </form>
             </div>
 
-            <div class="complete-task-btn-container">
+            <div class="complete-task-btn-container-js">
                 {{-- this button will change depending on the status of the task by using JAVASCRIPT --}}
             </div>
         </div>

@@ -179,3 +179,6 @@ function getTaskID(e){
 function openTask(taskId) {
     window.location.href = `/view-task/${taskId}`;
 }
+
+
+
