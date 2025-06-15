@@ -3,6 +3,32 @@ body {
     color: white;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* INTRO STYLING */
+
+.random-intro-container {
+    display: flex;
+    justify-content: center;
+    padding: 6rem;
+}
+
+.random-intro-wrap {
+    width: fit-content
+}
+
+.random-intro-wrap h1{
+    font-size: 3rem;
+    font-weight: 600;
+    color: yellow;
+}
+
+.random-intro-wrap p{
+    font-size: 1.5rem;
+}
+
 /*NAVIGATION BAR STYLING*/
 
 .employee-home-nav {
@@ -85,8 +111,8 @@ body {
 }
 
 .tasks-section h1{
-    font-size: 2.5rem;
-    color: rgb(12, 90, 233);
+    font-size: 3rem;
+    color: rgb(41, 109, 236);
     font-weight: 500;
 }
 

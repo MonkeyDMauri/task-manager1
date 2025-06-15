@@ -161,4 +161,8 @@ Route::post('/settings-view/update-name-view/update-password', [SettingsControll
 // Get tasks belonging to the currently logged in employee, so not all tasks will be retreived.
 Route::post('/get-tasks-from-employee-view', [UserController::class, 'getTasks']);
 
+// update task status using Laravel.
 Route::get('/update-task-status', [TaskController::class, 'updateClassStatus'])->name('update.task.status');
+
+// update task status using JS.
+Route::get('/update-task-status-js/{task}', [TaskController::class, 'updateClassStatusUsingJS']);

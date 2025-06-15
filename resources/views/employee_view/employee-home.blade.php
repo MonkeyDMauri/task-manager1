@@ -17,8 +17,8 @@
         </div>
 
         <ul class="nav-links-wrapper">
-            <li><a href="">Tasks</a></li>
-            <li><a href="">something</a></li>
+            <li><a href="#tasks">Tasks</a></li>
+            <li><a href="">Teams</a></li>
             <li><a href="">Settings</a></li>
             <li><button class="logout-btn">Logout</button></li>
         </ul>
@@ -34,7 +34,19 @@
         </div>
     </div>
 
-    <section class="tasks-section">
+    <div class="random-intro-container">
+        <div class="random-intro-wrap">
+            <h1>An easy way to manage your tasks</h1>
+            <hr>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ullam, repellat 
+                ducimus perferendis officiis facilis culpa soluta voluptatibus quas deserunt suscipit aliquam repellendus minima impedit possimus provident
+                 blanditiis illum dicta!
+            </p>
+
+        </div>
+    </div>
+
+    <section class="tasks-section" id="tasks">
 
         <div class="tasks-section-header">
                 <h1>My Tasks</h1>
@@ -56,7 +68,7 @@
 
         </div>
 
-<hr>
+        <hr>
         <div class="tasks-wrapper">
 
             <table class="tasks-list-table">

@@ -144,10 +144,34 @@ function displayUpdateTaskStatusBtn(task) {
     btnCon.innerHTML = `
         ${task.status === 'done' ? '<button class="update-task-status">mark as pending JS</button>' : '<button class="update-task-status">mark as done JS</button>'}
     `;
+}
 
-    // if (task.status === 'done'){
-    //     console.log('THIS TASK IS DONE')
-    // } else if (task.status === 'pending') {
-    //     console.log('THIS TASK IS PENDING');
-    // }
+// eventlistener for when user tried to change the task status.
+_('.complete-task-btn-container-js').addEventListener('click', e => {
+    if (e.target.matches('.update-task-status')) { 
+        updateTaskStatus(taskObject);
+    }
+})
+
+function updateTaskStatus(task) {
+    console.log('domain expansion');
+
+    fetch(`/update-task-status-js/${task.id}`)
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('something went wrong with fetch request:', res.status);
+        } else{
+            return res.json();
+        }
+    })
+    .then(data => {
+        if (data.success) {
+            location.reload(true);
+        } else{ 
+            throw new Error('updating task was not successful');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+    })
 }

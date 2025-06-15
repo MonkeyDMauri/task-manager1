@@ -138,4 +138,20 @@ class TaskController extends Controller
         // afterwards we just send the user to the route that's for having an overview of the task, also passing the task as a parameter.
         return redirect()->route('view.task', ['task' => $task])->with('success', 'task status was updated');
     }
+
+    public function updateClassStatusUsingJS(Task $task) {
+
+        if ($task->status === 'done') {
+            $task->update([
+                'status' => 'pending'
+            ]);
+        }
+        else {
+            $task->update([
+                'status' => 'done'
+            ]);
+        }
+
+        return response()->json(['success' => true]);
+    }
 }
