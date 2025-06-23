@@ -48,3 +48,7 @@ if (document.querySelector('body.employee-home')) {
     import('../css/employee-styling/employee-home-page.css');
     import('./employee/employee-home.js');
 }
+if (document.querySelector('body.team-overview-employee')) {
+    import('../css/employee-styling/team-overview.css');
+    import('./employee/team-overview.js');
+}

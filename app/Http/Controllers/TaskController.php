@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Team;
 use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -89,15 +90,25 @@ class TaskController extends Controller
             return back()->withErrors(['message' => 'No user with ID', $request->user_id ,'was found']);
         }
 
-        // if the task and user were able to be found then we update the task.
+        // checking if user is part of a team that this project is part of
+        $projectId = $task->project->id;
+        $project = Project::findOrFail($projectId);
+
+        $team = Team::findOrFail($project->team_id);
+
+        // if it isn't then tey are return back with an error message.
+        if (!$team->members->contains($user)) {
+            return back()->withErrors(['user_id' => 'This user does not belong to one of your teams']);
+        }
+
+        // if the task and user were able to be found and its confirmed
+        // this user belongs to the correct team then we update the task assignation.
         $task->update([
             'assigned_to' => $request->user_id
         ]);
-
-
-        // save update.
+        
         $task->save();
-
+        
         return back();
     }
 

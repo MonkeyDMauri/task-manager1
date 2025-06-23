@@ -1,0 +1,133 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+header {
+    background-color: rgba(7, 66, 228);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+header h1, header button{
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 1.5rem;
+}
+
+
+.team-info-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.team-info-wrap {
+    border: solid 1px white;
+    padding: 2rem;
+    margin-top: 4rem;
+    width: 50%;
+}
+
+.team-info-wrap-header {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.team-info-wrap-header h2{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.team-info-wrap-header p{
+    font-size: 1.2rem;
+}
+
+.team-description-wrap {
+    margin-top: 1rem;
+    
+}
+
+.team-description-wrap h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.description {
+    border: 1px solid white;
+    padding: .5rem;
+    width: 100%;
+    margin: 1rem 0;
+    display: block;
+}
+
+.member-card {
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem;
+    font-size: 1.1rem;
+}
+
+.action-btn {
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border-bottom: solid white 1px;
+    border-radius: .5rem;
+    margin: 1rem;
+
+    font-size: 1.3rem;
+}
+
+.action-btn:hover {
+    border: 1px solid white;
+    background-color: rgb(70, 69, 69);
+}
+
+/* LEAVE TEAM POPUP CONFIRMATION STYLING */
+
+.leave-team-popup-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.6);
+
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leave-team-popup-wrapper.show {
+    display: flex;
+}
+
+.leave-team-popup-wrap {
+    background-color: rgb(0, 0, 0);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    border: solid rgb(255, 249, 249) 1px;
+}
+
+.leave-team-popup-wrap h1{
+    font-size: 2rem;
+}
+
+.leave-team-btns-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.leave-team-btns-wrapper button{
+    border: solid rgb(255, 249, 249) 1px;
+    padding: .3rem .8rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}

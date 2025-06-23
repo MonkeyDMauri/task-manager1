@@ -18,7 +18,7 @@
 
         <ul class="nav-links-wrapper">
             <li><a href="#tasks">Tasks</a></li>
-            <li><a href="">Teams</a></li>
+            <li><a href="#teams">Teams</a></li>
             <li><a href="">Settings</a></li>
             <li><button class="logout-btn">Logout</button></li>
         </ul>
@@ -38,10 +38,12 @@
         <div class="random-intro-wrap">
             <h1>An easy way to manage your tasks</h1>
             <hr>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ullam, repellat 
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia ullam, repellat 
                 ducimus perferendis officiis facilis culpa soluta voluptatibus quas deserunt suscipit aliquam repellendus minima impedit possimus provident
                  blanditiis illum dicta!
             </p>
+
+            <img class="intro-img" src="{{asset('images/intro-img.jpeg')}}" alt="intro image">
 
         </div>
     </div>
@@ -92,6 +94,34 @@
             </table>
         </div>
 
+    </section>
+
+    <section class="teams-section" id="teams">
+        <div class="teams-section-header">
+            <h1>Teams you are part of</h1>
+        </div>
+
+        <div class="search-teams-wrapper">
+            <label for="search-team">Search</label>
+            <input type="text" id="search-team" placeholder="Search team by name...">
+            <button class="clear-search-team-bar">X</button>
+        </div>
+        <hr>
+        <table class="teams-table">
+            <caption>Teams</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Owner</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody class="teams-table-body">
+                {{-- teams go here and displayed using JS --}}
+            </tbody>
+        </table>
     </section>
 </body>
 </html>

@@ -180,5 +180,91 @@ function openTask(taskId) {
     window.location.href = `/view-task/${taskId}`;
 }
 
+// CODE FOR TEAMS SECTION IN EMPLOYEES HOME PAGE.
+
+let teams;
+
+function getTeams() {
+    fetch('/get-teams-employee')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network connection was not good:', res.status);
+        } else{ 
+            return res.json()
+        }
+    })
+    .then(data => {
+        teams = data.teams;
+        console.log('Teams:', teams);
+        displayTeams(teams);
+    })
+}
+
+getTeams();
+
+function displayTeams(teams) {
+    const teamsTableBody = _('.teams-table-body');
+    teamsTableBody.innerHTML = "";
+
+    teams.forEach(team => {
+        const teamRow = document.createElement('tr');
+        teamRow.classList = `team-row ${team.name}`;
+
+        teamRow.innerHTML = `
+            <td class="team-row-data team-id">${team.id}</td>
+            <td class="team-row-data team-name">${team.name}</td>
+            <td class="team-row-data team-description-cell">
+                <div class="team-description">
+                    ${team.description}
+                </div>
+            </td>
+            <td class="team-row-data team-owner">${team.owner}</td>
+            <td class="team-row-data team-created-at">${team.formatted_created_at}</td>
+        `
+        teamsTableBody.appendChild(teamRow);
+    })
+}
 
 
+// Checking to see if user clicks a cell to open the team overview
+_('.teams-table-body').addEventListener("click", e => {
+    // after is confirmed they did click a cell, we need to know what team overview
+    // they are trying to see, so we need to cal another function that'll get the closest element with the class
+    // "team-row-data", when calling that function we pass as a parameter the clicked cell.
+    if (e.target.matches('.team-row-data') || e.target.matches('.team-description')) {
+        console.log('row clicked');
+        getClickedTeam(e.target);
+    }
+})
+
+function getClickedTeam(cell) {
+    // Selecting the whole arrow element belonging to the clicked cell
+    const rowElement = cell.closest('.team-row');
+    // within the previously selected cell we now select the cell containing the team ID and grab its text content
+    const teamdId = rowElement.querySelector('.team-id').textContent;
+
+    // redirecting user to the team overview page and passing the team id as a parameter in the URL.
+    window.location.href = `/team-overview/${teamdId}`;
+}
+
+// CODE FOR SEARCH TEAM BY NAME
+
+// search bar input element
+const searchTeamBar = _('#search-team');
+
+searchTeamBar.addEventListener('keyup', filterTeams);
+
+function filterTeams() {
+    const searchTeamBarContent = searchTeamBar.value;
+
+    let filteredTeams = teams.filter(team => team.name.toLowerCase().includes(searchTeamBarContent.toLowerCase()));
+
+    displayTeams(filteredTeams);
+}
+
+_('.clear-search-team-bar').addEventListener('click', clearSearchBarTeams);
+
+function clearSearchBarTeams() {
+    searchTeamBar.value = '';
+    displayTeams(teams);
+}

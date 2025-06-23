@@ -19,6 +19,10 @@ class Team extends Model
     public function projects() {
         return $this->hasMany(Project::class);
     }
+
+    public function formattedCreatedAt() {
+        return $this->created_at->format('m/d/Y');
+    }
 }
 
 

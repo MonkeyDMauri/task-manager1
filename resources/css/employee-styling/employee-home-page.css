@@ -29,6 +29,12 @@ html {
     font-size: 1.5rem;
 }
 
+.intro-img {
+    width: 700px;
+    margin: 1rem;
+    border-radius: .5rem;
+}
+
 /*NAVIGATION BAR STYLING*/
 
 .employee-home-nav {
@@ -113,7 +119,7 @@ html {
 .tasks-section h1{
     font-size: 3rem;
     color: rgb(41, 109, 236);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .tasks-section-header {
@@ -171,4 +177,71 @@ html {
 .check-task:hover {
     color: blue;
     cursor: pointer;
+}
+
+
+/* TEAMS SECTION STYLING */
+
+.teams-section {
+    padding: 3rem;
+    margin-top: 6rem;
+}
+
+.teams-section-header h1 {
+    font-size: 3rem;
+    color: rgb(41, 109, 236);
+    font-weight: 600;
+}
+
+/* .teams-table {
+    width: 800px;
+} */
+
+.teams-table caption{
+    font-size: 3rem;
+}
+
+.teams-table-body td {
+    cursor: pointer;
+}
+
+.teams-table th {
+    background-color: rgb(133, 124, 124);
+}
+
+.teams-table-body td:hover {
+    color: rgb(41, 109, 236);
+}
+
+.teams-table th, td{
+    padding: .3rem;
+    border: 1px solid white;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 300px;
+    white-space: nowrap;
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.team-description {
+    white-space: normal;
+    overflow: auto;
+    height: 50px;
+    max-height: 50px;
+}
+
+.search-teams-wrapper input{
+    border: solid 1px white;
+    padding: .2rem;
+    font-size: 1.5rem;
+}
+
+.search-teams-wrapper label{
+    font-size: 1.5rem;
+}
+
+.clear-search-team-bar {
+    border: 1px solid white;
+    padding: .3rem;
 }

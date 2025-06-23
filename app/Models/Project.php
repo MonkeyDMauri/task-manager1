@@ -13,5 +13,9 @@ class Project extends Model
         return $this->hasMany(Task::class);
     }
 
+    public function team() {
+        return $this->belongsTo(Team::class);
+    }
+
     
 }

@@ -117,4 +117,26 @@ class TeamController extends Controller
 
         return redirect('/manager-dashboard');
     }
+
+    // when this function is called, the user is redeirected to a team overiew but from the perspective of an employee meaning
+    // they have less options unlike a manager.
+    function teamOverviewEmployeeView(Team $team) {
+        
+        // Checking if current user belongs to the team they wanna check out.
+
+        // First we grab current user.
+        $user = auth()->user();
+
+        // checking if the team they wanna visit is part of the teams the current user is part of.
+        if ($user->teams->contains($team)) {
+
+            $team->manager = $team->manager ? $team->manager->name : 'undefined';
+
+            return view('employee_view.team-overview', ['team' => $team]);
+        }
+
+        // if the previous if statement was not true (checking if user is part of the team they wanna see) then it means they dont
+        // have access to see this team so we send an abort message.
+        return abort('403', 'you dont have access to this team');
+    }
 }

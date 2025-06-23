@@ -166,3 +166,12 @@ Route::get('/update-task-status', [TaskController::class, 'updateClassStatus'])-
 
 // update task status using JS.
 Route::get('/update-task-status-js/{task}', [TaskController::class, 'updateClassStatusUsingJS']);
+
+// Get teams the current logged in employee is part of.
+Route::get('/get-teams-employee', [UserController::class, 'getTeams']);
+
+// Call method to see Team overview page.
+Route::get('/team-overview/{team}', [TeamController::class, 'teamOverviewEmployeeView']);
+
+Route::post('/leave-team', [UserController::class, 'leaveTeam']);
+
