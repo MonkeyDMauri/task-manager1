@@ -130,6 +130,8 @@ html {
     outline: solid 1px white;
     padding: .5rem;
     border-radius: .5rem;
+    background-color: black;
+    color: white;
 }
 
 .project-description {
@@ -143,6 +145,8 @@ html {
     outline: solid 1px white;
     padding: .5rem;
     border-radius: .5rem;   
+    background-color: black;
+    color: white;
 }
 
 .create-project-btn {
@@ -471,4 +475,9 @@ html {
     padding: .2rem  2rem;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+#team-id {
+    background-color: black;
+    color: white;
 }

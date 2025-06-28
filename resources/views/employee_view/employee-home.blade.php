@@ -19,7 +19,7 @@
         <ul class="nav-links-wrapper">
             <li><a href="#tasks">Tasks</a></li>
             <li><a href="#teams">Teams</a></li>
-            <li><a href="">Settings</a></li>
+            <li><a href="{{route('employee-settings')}}">Settings</a></li>
             <li><button class="logout-btn">Logout</button></li>
         </ul>
     </nav>

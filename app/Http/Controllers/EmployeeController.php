@@ -20,4 +20,10 @@ class EmployeeController extends Controller
 
         return response()->json(['employees' => $employees]);
     }
+
+
+    // go to employee settings (its different from the manager settings)
+    public function openSettings() {
+        return view('employee_view.emp-settings');
+    }
 }

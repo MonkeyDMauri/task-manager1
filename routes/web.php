@@ -173,5 +173,9 @@ Route::get('/get-teams-employee', [UserController::class, 'getTeams']);
 // Call method to see Team overview page.
 Route::get('/team-overview/{team}', [TeamController::class, 'teamOverviewEmployeeView']);
 
+// Leave a team
 Route::post('/leave-team', [UserController::class, 'leaveTeam']);
+
+// Go to employee settings
+Route::get('/employee-settings', [EmployeeController::class, 'openSettings'])->name('employee-settings');
 

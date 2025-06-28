@@ -52,3 +52,8 @@ if (document.querySelector('body.team-overview-employee')) {
     import('../css/employee-styling/team-overview.css');
     import('./employee/team-overview.js');
 }
+
+if (document.querySelector('body.employee-settings')) {
+    import('../css/employee-styling/emp-settings.css');
+    import('./employee/emp-settings.js')
+}
